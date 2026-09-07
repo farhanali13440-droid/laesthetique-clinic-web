@@ -58,14 +58,14 @@ export function AppointmentForm() {
           Name
         </label>
         <input id="name" name="name" className={field} placeholder="Your full name" />
-        {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+        {errors['name'] && <p className="mt-1 text-xs text-destructive">{errors['name']}</p>}
       </div>
       <div>
         <label htmlFor="phone" className="mb-1.5 block text-xs uppercase tracking-[0.16em]">
           Phone Number
         </label>
         <input id="phone" name="phone" className={field} placeholder="03XX XXXXXXX" />
-        {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
+        {errors['phone'] && <p className="mt-1 text-xs text-destructive">{errors['phone']}</p>}
       </div>
       <div className="sm:col-span-2">
         <label htmlFor="treatment" className="mb-1.5 block text-xs uppercase tracking-[0.16em]">
