@@ -229,10 +229,6 @@ function Index() {
               alt="Dr. Sumbleen Majid, dermatologist at La Esthetique Islamabad"
               className="relative w-full rounded-sm object-cover"
             />
-            <div className="relative -mt-8 ml-4 inline-block bg-background px-5 py-3 shadow-sm">
-              <p className="font-display text-lg text-espresso">Dr. Sumbleen Majid</p>
-              <p className="text-[0.68rem] uppercase tracking-[0.2em] text-primary">Dermatologist</p>
-            </div>
           </Reveal>
         </div>
       </section>
