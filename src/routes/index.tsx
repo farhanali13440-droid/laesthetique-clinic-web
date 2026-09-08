@@ -1,5 +1,7 @@
+
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MessageCircle, Sparkles, HeartHandshake, Stethoscope, Leaf, Quote } from "lucide-react";
+import { MessageCircle, Sparkles, HeartHandshake, Stethoscope, Leaf } from "lucide-react";
+import { GoogleReviews } from "@/components/site/GoogleReviews";
 import { Reveal } from "@/components/site/Reveal";
 import { Gallery } from "@/components/site/Gallery";
 import { btnGhost, btnPrimary, CtaBand, SectionHeading, TreatmentCard } from "@/components/site/ui";
@@ -75,12 +77,6 @@ const whyPoints = [
   },
 ];
 
-// Placeholder testimonials — replace with real patient reviews when available.
-const reviews = [
-  { name: "Patient review placeholder", text: "Add a real Google review here." },
-  { name: "Patient review placeholder", text: "Add a real Google review here." },
-  { name: "Patient review placeholder", text: "Add a real Google review here." },
-];
 
 function Home() {
   return (
@@ -236,25 +232,8 @@ function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="bg-sand/40 py-20 lg:py-28">
-        <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHeading eyebrow="Patients" title="What Our Patients Say" />
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
-            {reviews.map((r, i) => (
-              <Reveal
-                key={i}
-                delay={i * 80}
-                className="rounded-sm border border-border bg-card p-8"
-              >
-                <Quote className="h-6 w-6 text-primary" strokeWidth={1.3} />
-                <p className="mt-5 leading-relaxed text-muted-foreground">{r.text}</p>
-                <p className="mt-6 text-xs uppercase tracking-[0.16em] text-espresso">{r.name}</p>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* GOOGLE REVIEWS */}
+      <GoogleReviews />
 
       <CtaBand />
     </>
