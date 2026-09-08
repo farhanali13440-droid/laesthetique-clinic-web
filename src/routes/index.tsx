@@ -134,6 +134,10 @@ function Home() {
             care focused on healthier-looking skin, hair and natural-looking enhancement. Every
             treatment begins with understanding your concerns and creating a plan suited to you.
           </p>
+          <p className="mt-5 leading-relaxed text-muted-foreground">
+            The clinic brings together two areas of expertise under one roof: dermatology and
+            aesthetics with Dr. Sumbleen Majid, and dentistry with Dr. Mehwish Zaman.
+          </p>
         </Reveal>
       </section>
 
