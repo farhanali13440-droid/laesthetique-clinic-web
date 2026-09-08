@@ -96,22 +96,25 @@ function Home() {
 
         {/* SPLIT PANELS */}
         <div className="mt-12 grid gap-px bg-espresso/10 lg:mt-16 lg:grid-cols-2">
-          <Reveal as="article" className="group relative min-h-[24rem] overflow-hidden lg:min-h-[32rem]">
-            <img
-              src={doctors[0].image}
-              alt={doctors[0].imageAlt}
-              className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-espresso/92 via-espresso/45 to-espresso/10" />
-            <div className="relative flex min-h-[24rem] flex-col justify-end p-8 text-background sm:p-10 lg:min-h-[32rem]">
-              <p className="text-xs uppercase tracking-[0.22em] text-gold">Skin &amp; Aesthetics</p>
-              <h2 className="mt-3 font-display text-3xl">Dr. Sumbleen Majid</h2>
-              <p className="mt-2 text-sm text-background/80">
+          <Reveal as="article" className="group flex flex-col bg-background">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-sand">
+              <img
+                src={doctors[0].image}
+                alt={doctors[0].imageAlt}
+                className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6 sm:p-8">
+              <p className="eyebrow">Skin &amp; Aesthetics</p>
+              <h2 className="mt-3 font-display text-2xl text-espresso sm:text-3xl">
+                Dr. Sumbleen Majid
+              </h2>
+              <p className="mt-2 text-sm text-muted-foreground">
                 Dermatology • Skin • Hair • Aesthetics
               </p>
               <Link
                 to="/skin-treatments"
-                className="mt-6 inline-flex w-fit items-center gap-2 rounded-sm border border-gold px-6 py-3 text-xs uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-espresso"
+                className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-sm border border-gold px-6 py-3 text-xs uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-espresso sm:mt-7 sm:w-fit"
               >
                 Explore Skin &amp; Hair <ArrowRight className="h-4 w-4" />
               </Link>
@@ -121,23 +124,23 @@ function Home() {
           <Reveal
             as="article"
             delay={90}
-            className="group relative min-h-[24rem] overflow-hidden lg:min-h-[32rem]"
+            className="group flex flex-col bg-background"
           >
-            <img
-              src={images.drMehwish}
-              alt={doctors[1].imageAlt}
-              className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-espresso/92 via-espresso/45 to-espresso/10" />
-            <div className="relative flex min-h-[24rem] flex-col justify-end p-8 text-background sm:p-10 lg:min-h-[32rem]">
-              <p className="text-xs uppercase tracking-[0.22em] text-gold">Dental Care</p>
-              <h2 className="mt-3 font-display text-3xl">Dr. Mehwish Zaman</h2>
-              <p className="mt-2 text-sm text-background/80">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-sand">
+              <img
+                src={images.drMehwish}
+                alt={doctors[1].imageAlt}
+                className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
+            <div className="flex flex-1 flex-col p-6 sm:p-8">
+              <p className="eyebrow">Dental Care</p>
+              <p className="mt-2 text-sm text-muted-foreground">
                 Dentistry • Cosmetic Dentistry • Smile Care
               </p>
               <Link
                 to="/dental-services"
-                className="mt-6 inline-flex w-fit items-center gap-2 rounded-sm border border-gold px-6 py-3 text-xs uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-espresso"
+                className="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-sm border border-gold px-6 py-3 text-xs uppercase tracking-[0.16em] text-gold transition-colors hover:bg-gold hover:text-espresso sm:mt-7 sm:w-fit"
               >
                 Explore Dental Services <ArrowRight className="h-4 w-4" />
               </Link>
