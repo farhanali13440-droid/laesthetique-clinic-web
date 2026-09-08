@@ -7,7 +7,7 @@ import featureSkin from "@/assets/feature-skin.jpg";
 import featureCare from "@/assets/feature-care.jpg";
 import featureHair from "@/assets/feature-hair.jpg";
 import featureGlow from "@/assets/feature-glow.jpg";
-import drMehwish from "@/assets/dental/dr-mehwish-placeholder.jpg";
+import drMehwish from "@/assets/dental/dr-mehwish-zaman-official.jpg.asset.json";
 import dentalHero from "@/assets/dental/dental-hero.jpg";
 
 /**
@@ -48,8 +48,8 @@ export const images = {
   care: featureCare,
   hair: featureHair,
   glow: featureGlow,
-  /** Placeholder portrait — replace with Dr. Mehwish Zaman's actual photo. */
-  drMehwish,
+  /** Approved official profile visual for Dr. Mehwish Zaman. */
+  drMehwish: drMehwish.url,
   dentalRoom: dentalHero,
 };
 
@@ -76,24 +76,23 @@ export const doctors = [
   },
   {
     name: "Dr. Mehwish Zaman",
-    role: "Dentist",
-    focus: "General Dentistry • Cosmetic Dentistry • Orthodontics",
+    role: "Dentist / Aesthetic Physician",
+    focus: "BDS, MDS Res/Endo, C. Implantology, MRCS UK",
     to: "/dr-mehwish-zaman",
-    image: drMehwish,
-    imageAlt: "Professional photo placeholder for Dr. Mehwish Zaman, dentist at La Esthetique",
+    image: drMehwish.url,
+    imageAlt: "Dr. Mehwish Zaman, dentist and aesthetic physician at La Esthetique",
   },
 ] as const;
 
 /**
- * Editable placeholders for Dr. Mehwish Zaman.
- * Leave an entry empty until the real detail is confirmed — empty entries are not rendered.
+ * Approved professional details for Dr. Mehwish Zaman.
  */
 export const mehwishProfile = {
-  qualifications: "",
-  certifications: "",
+  qualifications: "BDS, MDS Res/Endo, C. Implantology, MRCS UK",
+  certifications: "Diplomate American Board of Aesthetics USA",
   experience: "",
-  specializations: "",
-  memberships: "",
+  specializations: "Dentistry and Aesthetic Medicine",
+  memberships: "Member Royal College of Surgeons Edinburgh UK",
 };
 
 export function whatsappForDental(topic: string) {

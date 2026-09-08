@@ -7,3 +7,4 @@
 - [x] Verify desktop and mobile appointment links and confirm the project is error-free.
 - [x] Give every treatment a distinct, treatment-specific image and descriptive alt text.
 - [x] Verify image uniqueness, treatment pages, and responsive card rendering.
+- [x] Use the approved Dr. Mehwish Zaman visual and professional details throughout her profile placements.

@@ -40,6 +40,10 @@ function DentalServices() {
               Esthetique provides personalized dental solutions for healthier teeth and confident
               smiles.
             </p>
+            <div className="mt-5 space-y-1 text-sm leading-relaxed text-muted-foreground">
+              <p>Dr. Mehwish Zaman · Dentist / Aesthetic Physician</p>
+              <p>BDS, MDS Res/Endo, C. Implantology, MRCS UK</p>
+            </div>
             <a
               href={dentalWhatsappLink}
               target="_blank"
@@ -51,11 +55,11 @@ function DentalServices() {
           </Reveal>
           <Reveal delay={120}>
             <img
-              src={images.dentalRoom}
-              alt="Calm modern dental treatment room at La Esthetique, Islamabad"
-              width={1280}
-              height={960}
-              className="h-[24rem] w-full rounded-sm object-cover lg:h-[30rem]"
+              src={images.drMehwish}
+              alt="Dr. Mehwish Zaman, dentist and aesthetic physician at La Esthetique, Islamabad"
+              width={769}
+              height={1025}
+              className="mx-auto aspect-[769/1025] max-h-[42rem] w-full rounded-sm object-contain"
             />
           </Reveal>
         </div>
