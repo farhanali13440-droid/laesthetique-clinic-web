@@ -1,5 +1,5 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { MessageCircle, Sparkles, HeartHandshake, Stethoscope, Leaf, Quote } from "lucide-react";
+import { MessageCircle, Sparkles, HeartHandshake, Stethoscope, Leaf } from "lucide-react";
+import { GoogleReviews } from "@/components/site/GoogleReviews";
 import { Reveal } from "@/components/site/Reveal";
 import { Gallery } from "@/components/site/Gallery";
 import { btnGhost, btnPrimary, CtaBand, SectionHeading, TreatmentCard } from "@/components/site/ui";
