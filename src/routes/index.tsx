@@ -8,9 +8,9 @@ import { btnGhost, btnPrimary, CtaBand, SectionHeading } from "@/components/site
 import { clinic, doctors, images, whatsappLink } from "@/lib/site";
 import { featuredDentalSlugs, getDentalService } from "@/lib/dental";
 
-const title = "Skin, Hair & Dental Clinic Islamabad | La Esthetique";
+const title = "Dr. Sumbleen Majid | Dermatologist in Islamabad | La Esthetique";
 const description =
-  "La Esthetique offers dermatology, skin, hair, aesthetic and dental care with Dr. Sumbleen Majid and Dr. Mehwish Zaman in F-11 Markaz, Islamabad.";
+  "Consult Dr. Sumbleen Majid at La Esthetique, Islamabad for personalized dermatology, skin, hair and aesthetic treatments in F-11 Markaz.";
 
 export const Route = createFileRoute("/")({
   component: Home,
@@ -36,9 +36,9 @@ export const Route = createFileRoute("/")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "MedicalBusiness",
-          name: "La Esthetique — Skin, Hair, Aesthetic & Dental Clinic",
+          name: "La Esthetique — Dr. Sumbleen Majid",
           description,
-          medicalSpecialty: ["Dermatology", "Dentistry"],
+          medicalSpecialty: "Dermatology",
           telephone: clinic.phoneTel,
           address: {
             "@type": "PostalAddress",
@@ -82,77 +82,42 @@ function Home() {
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden bg-sand/50 pt-28 pb-12 lg:pt-32 lg:pb-16">
-        <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-          <Reveal className="relative z-10">
+      <section className="relative bg-sand/50 pt-28 pb-16 lg:pt-36 lg:pb-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+          <Reveal>
             <p className="eyebrow">La Esthetique · F-11 Markaz, Islamabad</p>
-            <h1 className="mt-5 max-w-xl font-display text-4xl leading-[1.08] text-espresso sm:text-5xl lg:text-6xl">
-              Advanced Skin, Hair, Aesthetic &amp; Dental Care
+            <h1 className="mt-5 font-display text-4xl leading-[1.1] text-espresso sm:text-5xl lg:text-6xl">
+              Expert Dermatology &amp; Aesthetic Care in Islamabad
             </h1>
-            <p className="mt-6 max-w-lg text-base leading-relaxed text-muted-foreground">
-              Personalized medical, aesthetic and dental care under one roof in F-11 Markaz,
-              Islamabad.
+            <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
+              Personalized skin, hair and aesthetic treatments designed around your individual
+              needs, with care you can trust.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-9 flex flex-wrap gap-3">
               <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
                 Book an Appointment
               </a>
-              <a href="#treatments" className={btnGhost}>
-                Explore Our Treatments
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={btnGhost}
+              >
+                <MessageCircle className="h-4 w-4" /> WhatsApp Us
               </a>
             </div>
-            <div className="mt-7 flex flex-wrap gap-x-7 gap-y-3 border-t border-primary/20 pt-5">
-              <Link to="/skin-treatments" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary transition-colors hover:text-espresso">
-                Skin &amp; Hair Treatments <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-              <Link to="/dental-services" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary transition-colors hover:text-espresso">
-                Dental Services <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
-            </div>
-            <p className="mt-7 max-w-lg text-sm leading-relaxed text-foreground/70">
-              Expert care for your skin, hair, smile and overall aesthetic wellness.
+            <p className="mt-10 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+              Dermatology • Skin Health • Hair Care • Aesthetic Treatments
             </p>
           </Reveal>
 
-          <Reveal delay={120} className="relative mx-auto w-full max-w-3xl">
-            <div className="grid grid-cols-2 overflow-hidden rounded-sm border border-primary/20 bg-background shadow-xl">
-              <Link to="/about" className="group relative min-h-[28rem] overflow-hidden border-r border-background/70 sm:min-h-[34rem]">
-                <img
-                  src={images.doctor}
-                  alt="Dr. Sumbleen Majid, dermatologist and aesthetic physician at La Esthetique Islamabad"
-                  width={1265}
-                  height={1687}
-                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/5 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 z-10 p-4 text-background sm:p-7">
-                  <p className="font-display text-xl sm:text-3xl">Dr. Sumbleen Majid</p>
-                  <p className="mt-2 text-[0.6rem] uppercase leading-relaxed tracking-[0.14em] text-background/80 sm:text-xs">
-                    Dermatology • Skin • Hair • Aesthetics
-                  </p>
-                </div>
-              </Link>
-              <Link to="/dr-mehwish-zaman" className="group relative min-h-[28rem] overflow-hidden sm:min-h-[34rem]">
-                <img
-                  src={images.drMehwish}
-                  alt="Dr. Mehwish Zaman, dentist and aesthetic physician at La Esthetique Islamabad"
-                  width={1265}
-                  height={1687}
-                  className="absolute inset-0 h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-[1.025]"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-espresso/95 via-espresso/5 to-transparent" />
-                <div className="absolute inset-x-0 bottom-0 z-10 p-4 text-right text-background sm:p-7">
-                  <p className="font-display text-xl sm:text-3xl">Dr. Mehwish Zaman</p>
-                  <p className="mt-2 text-[0.6rem] uppercase leading-relaxed tracking-[0.14em] text-background/80 sm:text-xs">
-                    Dentistry • Cosmetic Dentistry • Aesthetic Care
-                  </p>
-                </div>
-              </Link>
-            </div>
-            <div className="absolute left-1/2 top-1/2 z-20 hidden -translate-x-1/2 -translate-y-1/2 border border-primary/25 bg-background/95 px-5 py-4 text-center shadow-lg backdrop-blur-sm sm:block">
-              <img src={images.logo} alt="" className="mx-auto h-12 w-12 rounded-full object-contain" />
-              <p className="mt-2 whitespace-nowrap font-display text-lg text-espresso">La Esthetique</p>
-            </div>
+          <Reveal delay={120} className="relative mx-auto w-full max-w-md">
+            <div className="absolute -inset-3 rounded-sm border border-primary/35" aria-hidden />
+            <img
+              src={images.doctor}
+              alt="Dr. Sumbleen Majid, dermatologist at La Esthetique Islamabad"
+              className="relative w-full rounded-sm object-cover"
+            />
           </Reveal>
         </div>
       </section>
@@ -162,21 +127,22 @@ function Home() {
         <Reveal>
           <p className="eyebrow">Welcome</p>
           <h2 className="mt-4 font-display text-3xl text-espresso sm:text-4xl">
-             Skin, Hair, Aesthetic &amp; Dental Care Under One Roof
+            Where Skin Health Meets Aesthetic Expertise
           </h2>
           <p className="mt-7 leading-relaxed text-muted-foreground">
-            La Esthetique brings together personalized dermatology, skin, hair, aesthetic and dental
-            care in one clinic, with every treatment beginning with an understanding of your needs.
+            At La Esthetique, Dr. Sumbleen Majid provides personalized dermatology and aesthetic
+            care focused on healthier-looking skin, hair and natural-looking enhancement. Every
+            treatment begins with understanding your concerns and creating a plan suited to you.
           </p>
           <p className="mt-5 leading-relaxed text-muted-foreground">
-            Dr. Sumbleen Majid provides dermatology and aesthetic care, while Dr. Mehwish Zaman
-            provides dentistry and aesthetic care — two areas of expertise within La Esthetique.
+            The clinic brings together two areas of expertise under one roof: dermatology and
+            aesthetics with Dr. Sumbleen Majid, and dentistry with Dr. Mehwish Zaman.
           </p>
         </Reveal>
       </section>
 
       {/* TREATMENT PREVIEW */}
-      <section id="treatments" className="scroll-mt-24 bg-sand/40 py-20 lg:py-28">
+      <section className="bg-sand/40 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
           <SectionHeading eyebrow="Our Treatments" title="Personalized Care, Clearly Organized" />
           <div className="mt-14 grid gap-8 lg:grid-cols-2">
