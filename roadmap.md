@@ -8,3 +8,4 @@
 - [x] Give every treatment a distinct, treatment-specific image and descriptive alt text.
 - [x] Verify image uniqueness, treatment pages, and responsive card rendering.
 - [x] Use the approved Dr. Mehwish Zaman visual and professional details throughout her profile placements.
+- [x] Fix homepage doctor CTA overlap: move CTAs outside the doctor posters, mobile-first, no absolute positioning.
