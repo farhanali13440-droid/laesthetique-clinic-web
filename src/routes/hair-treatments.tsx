@@ -1,136 +1,66 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import { btnGhost, btnPrimary, CtaBand } from "@/components/site/ui";
+import { btnPrimary, CtaBand, TreatmentCard } from "@/components/site/ui";
 import { images } from "@/lib/site";
-import { getTreatment } from "@/lib/treatments";
+import { getTreatment, type Treatment } from "@/lib/treatments";
 
-const title = "Aesthetic Treatments | Botox & Fillers in Islamabad | La Esthetique";
-const description =
-  "Subtle, natural-looking aesthetic treatments — Botox, fillers, threads, PRP microneedling and skin rejuvenation with Dr. Sumbleen Majid, Islamabad.";
+const title = "Hair Treatments in Islamabad | La Esthetique";
+const description = "Explore personalized treatments for hair loss, thinning and scalp health with Dr. Sumbleen Majid at La Esthetique, Islamabad.";
 
 export const Route = createFileRoute("/hair-treatments")({
-  component: Aesthetics,
+  component: HairTreatments,
   head: () => ({
     meta: [
-      { title },
-      { name: "description", content: description },
-      { property: "og:title", content: title },
-      { property: "og:description", content: description },
-      { property: "og:type", content: "website" },
-      { property: "og:url", content: "/aesthetics" },
+      { title }, { name: "description", content: description },
+      { property: "og:title", content: title }, { property: "og:description", content: description },
+      { property: "og:type", content: "website" }, { property: "og:url", content: "/hair-treatments" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "/aesthetics" }],
+    links: [{ rel: "canonical", href: "/hair-treatments" }],
   }),
 });
 
-const slugs = [
-  "botox",
-  "under-eye-fillers",
-  "threads-lifting",
-  "anti-aging",
-  "prp-microneedling-thread-lift",
-  "advanced-skincare",
-  "hydrafacial",
-  "carbon-hollywood-facial",
-];
+const items: Treatment[] = ["prp-scalp", "hair-exosomes"].flatMap((slug) => {
+  const treatment = getTreatment(slug);
+  return treatment ? [treatment] : [];
+});
 
-const items = slugs.map((s) => getTreatment(s)).filter(Boolean) as NonNullable<
-  ReturnType<typeof getTreatment>
->[];
-
-function Aesthetics() {
+function HairTreatments() {
   return (
     <>
-      <section className="relative bg-espresso pt-28 pb-20 text-background lg:pt-36 lg:pb-28">
+      <section className="bg-sand/50 pt-28 pb-20 lg:pt-36 lg:pb-28">
         <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
           <Reveal>
-            <p className="text-[0.72rem] uppercase tracking-[0.24em] text-gold">Aesthetics</p>
-            <h1 className="mt-5 font-display text-4xl leading-[1.12] sm:text-5xl">
-              Subtle Enhancements. Natural-Looking Results.
-            </h1>
-            <p className="mt-7 max-w-xl leading-relaxed text-background/75">
-              Aesthetic treatments at La Esthetique are planned conservatively — assessed first,
-              discussed openly, and carried out with a preference for restraint over transformation.
-            </p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Link
-                to="/contact"
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-7 py-3.5 text-sm uppercase tracking-[0.14em] text-espresso transition-opacity hover:opacity-90"
-              >
-                Book a Consultation
-              </Link>
-              <Link
-                to="/treatments"
-                className="inline-flex items-center justify-center gap-2 rounded-sm border border-background/40 px-7 py-3.5 text-sm uppercase tracking-[0.14em] text-background transition-colors hover:bg-background/10"
-              >
-                All Treatments
-              </Link>
-            </div>
+            <p className="eyebrow">Hair &amp; Scalp Care</p>
+            <h1 className="rule-gold mt-5 font-display text-4xl leading-[1.12] text-espresso sm:text-5xl">Personalized Hair Treatments</h1>
+            <p className="mt-7 max-w-xl leading-relaxed text-muted-foreground">Hair thinning, hair loss and scalp concerns are assessed individually before a personalized treatment plan is discussed with you.</p>
+            <Link to="/contact" className={`${btnPrimary} mt-9`}>Book a Consultation</Link>
           </Reveal>
-          <Reveal delay={120}>
-            <img
-              src={images.glow}
-              alt="Soft ivory textures reflecting the calm aesthetic of La Esthetique"
-              className="h-[24rem] w-full rounded-sm object-cover lg:h-[32rem]"
-            />
-          </Reveal>
+          <Reveal delay={120}><img src={images.hair} alt="Hair and scalp treatment at La Esthetique" className="h-[24rem] w-full rounded-sm object-cover lg:h-[32rem]" /></Reveal>
         </div>
       </section>
-
       <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
-        <div className="grid gap-x-10 gap-y-14 sm:grid-cols-2 lg:grid-cols-4">
-          {items.map((t, i) => (
-            <Reveal as="article" key={t.slug} delay={(i % 4) * 60} className="group">
-              <Link
-                to="/treatments/$slug"
-                params={{ slug: t.slug }}
-                className="block overflow-hidden rounded-sm bg-sand"
-              >
-                <img
-                  src={t.image}
-                  alt={t.name}
-                  loading="lazy"
-                  className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-              </Link>
-              <h2 className="mt-5 font-display text-xl text-espresso">{t.name}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{t.description}</p>
-              <Link
-                to="/treatments/$slug"
-                params={{ slug: t.slug }}
-                className="mt-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary"
-              >
-                Learn More <ArrowRight className="h-3.5 w-3.5" />
-              </Link>
+        <div className="mb-14 grid gap-8 border-b border-border pb-14 sm:grid-cols-2 lg:grid-cols-4">
+          {["Hair Thinning", "Hair Loss", "Scalp Health", "Hair Rejuvenation"].map((concern, index) => (
+            <Reveal key={concern} delay={index * 60}>
+              <p className="text-xs uppercase tracking-[0.16em] text-primary">0{index + 1}</p>
+              <h2 className="mt-3 font-display text-2xl text-espresso">{concern}</h2>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">Assessment helps identify a suitable, personalized approach for your hair and scalp concern.</p>
             </Reveal>
           ))}
         </div>
+        <div className="grid gap-10 sm:grid-cols-2">{items.map((t, i) => <TreatmentCard key={t.slug} {...t} delay={i * 70} />)}</div>
       </section>
-
       <section className="bg-sand/40 py-20 lg:py-24">
         <div className="mx-auto max-w-3xl px-5 text-center">
           <Reveal>
-            <p className="eyebrow">Our Approach</p>
-            <h2 className="mt-4 font-display text-3xl text-espresso sm:text-4xl">
-              Considered, Not Overdone
-            </h2>
-            <p className="mt-6 leading-relaxed text-muted-foreground">
-              Facial assessment comes before any treatment. Options are explained clearly, including
-              what a treatment can and cannot address, so decisions are made with realistic
-              expectations and no pressure.
-            </p>
-            <Link to="/about" className={`${btnGhost} mt-9`}>
-              Meet Dr. Sumbleen
-            </Link>
-            <Link to="/contact" className={`${btnPrimary} mt-9 ml-3`}>
-              Book a Consultation
-            </Link>
+            <p className="eyebrow">Assessment First</p>
+            <h2 className="mt-4 font-display text-3xl text-espresso sm:text-4xl">Hair &amp; Scalp Care Built Around You</h2>
+            <p className="mt-6 leading-relaxed text-muted-foreground">Hair and scalp concerns can have different causes. Dr. Sumbleen begins with an individual consultation before discussing whether PRP, exosome-based care or another approach may be suitable.</p>
+            <Link to="/contact" className={`${btnPrimary} mt-9`}>Discuss Your Hair Concern</Link>
           </Reveal>
         </div>
       </section>
-
       <CtaBand />
     </>
   );

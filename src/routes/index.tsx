@@ -1,12 +1,11 @@
 
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { MessageCircle, Sparkles, HeartHandshake, Stethoscope, Leaf } from "lucide-react";
+import { ArrowRight, MessageCircle, Sparkles, HeartHandshake, Stethoscope, Leaf } from "lucide-react";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
 import { Reveal } from "@/components/site/Reveal";
 import { Gallery } from "@/components/site/Gallery";
-import { btnGhost, btnPrimary, CtaBand, SectionHeading, TreatmentCard } from "@/components/site/ui";
+import { btnGhost, btnPrimary, CtaBand, SectionHeading } from "@/components/site/ui";
 import { clinic, images, whatsappLink } from "@/lib/site";
-import { featuredTreatments } from "@/lib/treatments";
 
 const title = "Dr. Sumbleen Majid | Dermatologist in Islamabad | La Esthetique";
 const description =
@@ -137,19 +136,29 @@ function Home() {
         </Reveal>
       </section>
 
-      {/* FEATURED TREATMENTS */}
+      {/* TREATMENT PREVIEW */}
       <section className="bg-sand/40 py-20 lg:py-28">
         <div className="mx-auto max-w-7xl px-5 lg:px-8">
-          <SectionHeading eyebrow="Featured" title="Treatments Our Patients Ask For Most" />
-          <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {featuredTreatments.map((t, i) => (
-              <TreatmentCard key={t.slug} {...t} delay={i * 70} />
-            ))}
-          </div>
-          <div className="mt-14 text-center">
-            <Link to="/treatments" className={btnGhost}>
-              View All Treatments
-            </Link>
+          <SectionHeading eyebrow="Our Treatments" title="Personalized Care, Clearly Organized" />
+          <div className="mt-14 grid gap-8 lg:grid-cols-2">
+            <Reveal as="article" className="group relative min-h-[28rem] overflow-hidden rounded-sm">
+              <img src={images.skin} alt="Skin treatments at La Esthetique" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/30 to-transparent" />
+              <div className="relative flex min-h-[28rem] flex-col justify-end p-8 text-background sm:p-10">
+                <h3 className="font-display text-3xl">Skin Treatments</h3>
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-background/80">Explore advanced dermatology, skin rejuvenation, laser and aesthetic treatments.</p>
+                <Link to="/skin-treatments" className="mt-7 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-gold">Explore Treatments <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
+              </div>
+            </Reveal>
+            <Reveal as="article" delay={90} className="group relative min-h-[28rem] overflow-hidden rounded-sm">
+              <img src={images.hair} alt="Hair and scalp treatments at La Esthetique" loading="lazy" className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div className="absolute inset-0 bg-gradient-to-t from-espresso/90 via-espresso/30 to-transparent" />
+              <div className="relative flex min-h-[28rem] flex-col justify-end p-8 text-background sm:p-10">
+                <h3 className="font-display text-3xl">Hair Treatments</h3>
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-background/80">Explore personalized treatments for hair loss, thinning and scalp health.</p>
+                <Link to="/hair-treatments" className="mt-7 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-gold">Explore Treatments <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" /></Link>
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
