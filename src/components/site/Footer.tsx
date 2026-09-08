@@ -14,8 +14,9 @@ export function Footer() {
             className="h-16 w-16 rounded-full bg-background/90 object-contain p-1"
           />
           <p className="mt-5 text-sm leading-relaxed text-background/70">
-            La Esthetique is a dermatology and medical aesthetics clinic in F-11 Markaz, Islamabad,
-            led by {clinic.doctor}.
+            La Esthetique is a dermatology, medical aesthetics and dental clinic in F-11 Markaz,
+            Islamabad — dermatology and aesthetics with {clinic.doctor}, dentistry with Dr. Mehwish
+            Zaman.
           </p>
         </div>
         <div>
@@ -32,7 +33,10 @@ export function Footer() {
         </div>
         <div>
           <h3 className="text-xs uppercase tracking-[0.2em] text-gold">Treatments</h3>
-          <ul className="mt-5 space-y-2.5 text-sm">
+          <p className="mt-5 text-[0.68rem] uppercase tracking-[0.18em] text-background/50">
+            Dermatology &amp; Aesthetics · Dr. Sumbleen Majid
+          </p>
+          <ul className="mt-2.5 space-y-2.5 text-sm">
             <li>
               <Link to="/skin-treatments" className="text-background/70 hover:text-background">
                 Skin Treatments
@@ -41,6 +45,21 @@ export function Footer() {
             <li>
               <Link to="/hair-treatments" className="text-background/70 hover:text-background">
                 Hair Treatments
+              </Link>
+            </li>
+          </ul>
+          <p className="mt-6 text-[0.68rem] uppercase tracking-[0.18em] text-background/50">
+            Dentistry · Dr. Mehwish Zaman
+          </p>
+          <ul className="mt-2.5 space-y-2.5 text-sm">
+            <li>
+              <Link to="/dental-services" className="text-background/70 hover:text-background">
+                Dental Services
+              </Link>
+            </li>
+            <li>
+              <Link to="/dr-mehwish-zaman" className="text-background/70 hover:text-background">
+                Meet Dr. Mehwish
               </Link>
             </li>
           </ul>
