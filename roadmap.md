@@ -6,4 +6,4 @@
 - [x] Point every appointment CTA to the configured WhatsApp number with the requested message.
 - [x] Verify desktop and mobile appointment links and confirm the project is error-free.
 - [x] Give every treatment a distinct, treatment-specific image and descriptive alt text.
-- [ ] Verify image uniqueness, treatment pages, and responsive card rendering.
+- [x] Verify image uniqueness, treatment pages, and responsive card rendering.
