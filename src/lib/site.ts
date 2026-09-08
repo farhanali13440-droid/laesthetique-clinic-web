@@ -8,7 +8,6 @@ import featureCare from "@/assets/feature-care.jpg";
 import featureHair from "@/assets/feature-hair.jpg";
 import featureGlow from "@/assets/feature-glow.jpg";
 import drMehwish from "@/assets/dental/dr-mehwish-zaman-official.jpg.asset.json";
-import dentalHero from "@/assets/dental/dental-hero.jpg";
 
 /**
  * Central place for clinic details and imagery.
@@ -50,7 +49,8 @@ export const images = {
   glow: featureGlow,
   /** Approved official profile visual for Dr. Mehwish Zaman. */
   drMehwish: drMehwish.url,
-  dentalRoom: dentalHero,
+  /** Approved real La Esthetique treatment-room photograph. */
+  dentalRoom: treatmentRoom.url,
 };
 
 export const navLinks = [
