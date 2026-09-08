@@ -1,3 +1,5 @@
+import { createFileRoute } from '@tanstack/react-router'
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { MessageCircle, Sparkles, HeartHandshake, Stethoscope, Leaf } from "lucide-react";
 import { GoogleReviews } from "@/components/site/GoogleReviews";
 import { Reveal } from "@/components/site/Reveal";
