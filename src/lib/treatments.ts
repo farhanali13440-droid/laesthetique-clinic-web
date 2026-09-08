@@ -13,7 +13,7 @@ export type Treatment = {
   description: string;
   image: string;
   categorySlug: string;
-  detail?: TreatmentDetail;
+  detail?: TreatmentDetail | undefined;
 };
 
 export type TreatmentCategory = {
