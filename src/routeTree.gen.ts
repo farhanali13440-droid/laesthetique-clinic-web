@@ -14,9 +14,12 @@ import { Route as AboutRouteImport } from './routes/about'
 import { Route as AestheticsRouteImport } from './routes/aesthetics'
 import { Route as ClinicRouteImport } from './routes/clinic'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DrMehwishZamanRouteImport } from './routes/dr-mehwish-zaman'
 import { Route as HairTreatmentsRouteImport } from './routes/hair-treatments'
 import { Route as SkinHairRouteImport } from './routes/skin-hair'
 import { Route as SkinTreatmentsRouteImport } from './routes/skin-treatments'
+import { Route as DentalServicesIndexRouteImport } from './routes/dental-services.index'
+import { Route as DentalServicesSlugRouteImport } from './routes/dental-services.$slug'
 import { Route as TreatmentsIndexRouteImport } from './routes/treatments.index'
 import { Route as TreatmentsSlugRouteImport } from './routes/treatments.$slug'
 import { Route as TreatmentsCategoryCategoryRouteImport } from './routes/treatments.category.$category'
@@ -46,6 +49,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DrMehwishZamanRoute = DrMehwishZamanRouteImport.update({
+  id: '/dr-mehwish-zaman',
+  path: '/dr-mehwish-zaman',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const HairTreatmentsRoute = HairTreatmentsRouteImport.update({
   id: '/hair-treatments',
   path: '/hair-treatments',
@@ -59,6 +67,16 @@ const SkinHairRoute = SkinHairRouteImport.update({
 const SkinTreatmentsRoute = SkinTreatmentsRouteImport.update({
   id: '/skin-treatments',
   path: '/skin-treatments',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentalServicesIndexRoute = DentalServicesIndexRouteImport.update({
+  id: '/dental-services/',
+  path: '/dental-services/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DentalServicesSlugRoute = DentalServicesSlugRouteImport.update({
+  id: '/dental-services/$slug',
+  path: '/dental-services/$slug',
   getParentRoute: () => rootRouteImport,
 } as any)
 const TreatmentsIndexRoute = TreatmentsIndexRouteImport.update({
@@ -84,10 +102,13 @@ export interface FileRoutesByFullPath {
   '/aesthetics': typeof AestheticsRoute
   '/clinic': typeof ClinicRoute
   '/contact': typeof ContactRoute
+  '/dr-mehwish-zaman': typeof DrMehwishZamanRoute
   '/hair-treatments': typeof HairTreatmentsRoute
   '/skin-hair': typeof SkinHairRoute
   '/skin-treatments': typeof SkinTreatmentsRoute
+  '/dental-services/$slug': typeof DentalServicesSlugRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
+  '/dental-services/': typeof DentalServicesIndexRoute
   '/treatments/': typeof TreatmentsIndexRoute
   '/treatments/category/$category': typeof TreatmentsCategoryCategoryRoute
 }
@@ -97,10 +118,13 @@ export interface FileRoutesByTo {
   '/aesthetics': typeof AestheticsRoute
   '/clinic': typeof ClinicRoute
   '/contact': typeof ContactRoute
+  '/dr-mehwish-zaman': typeof DrMehwishZamanRoute
   '/hair-treatments': typeof HairTreatmentsRoute
   '/skin-hair': typeof SkinHairRoute
   '/skin-treatments': typeof SkinTreatmentsRoute
+  '/dental-services/$slug': typeof DentalServicesSlugRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
+  '/dental-services': typeof DentalServicesIndexRoute
   '/treatments': typeof TreatmentsIndexRoute
   '/treatments/category/$category': typeof TreatmentsCategoryCategoryRoute
 }
@@ -111,10 +135,13 @@ export interface FileRoutesById {
   '/aesthetics': typeof AestheticsRoute
   '/clinic': typeof ClinicRoute
   '/contact': typeof ContactRoute
+  '/dr-mehwish-zaman': typeof DrMehwishZamanRoute
   '/hair-treatments': typeof HairTreatmentsRoute
   '/skin-hair': typeof SkinHairRoute
   '/skin-treatments': typeof SkinTreatmentsRoute
+  '/dental-services/$slug': typeof DentalServicesSlugRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
+  '/dental-services/': typeof DentalServicesIndexRoute
   '/treatments/': typeof TreatmentsIndexRoute
   '/treatments/category/$category': typeof TreatmentsCategoryCategoryRoute
 }
@@ -126,10 +153,13 @@ export interface FileRouteTypes {
     | '/aesthetics'
     | '/clinic'
     | '/contact'
+    | '/dr-mehwish-zaman'
     | '/hair-treatments'
     | '/skin-hair'
     | '/skin-treatments'
+    | '/dental-services/$slug'
     | '/treatments/$slug'
+    | '/dental-services/'
     | '/treatments/'
     | '/treatments/category/$category'
   fileRoutesByTo: FileRoutesByTo
@@ -139,10 +169,13 @@ export interface FileRouteTypes {
     | '/aesthetics'
     | '/clinic'
     | '/contact'
+    | '/dr-mehwish-zaman'
     | '/hair-treatments'
     | '/skin-hair'
     | '/skin-treatments'
+    | '/dental-services/$slug'
     | '/treatments/$slug'
+    | '/dental-services'
     | '/treatments'
     | '/treatments/category/$category'
   id:
@@ -152,10 +185,13 @@ export interface FileRouteTypes {
     | '/aesthetics'
     | '/clinic'
     | '/contact'
+    | '/dr-mehwish-zaman'
     | '/hair-treatments'
     | '/skin-hair'
     | '/skin-treatments'
+    | '/dental-services/$slug'
     | '/treatments/$slug'
+    | '/dental-services/'
     | '/treatments/'
     | '/treatments/category/$category'
   fileRoutesById: FileRoutesById
@@ -166,10 +202,13 @@ export interface RootRouteChildren {
   AestheticsRoute: typeof AestheticsRoute
   ClinicRoute: typeof ClinicRoute
   ContactRoute: typeof ContactRoute
+  DrMehwishZamanRoute: typeof DrMehwishZamanRoute
   HairTreatmentsRoute: typeof HairTreatmentsRoute
   SkinHairRoute: typeof SkinHairRoute
   SkinTreatmentsRoute: typeof SkinTreatmentsRoute
+  DentalServicesSlugRoute: typeof DentalServicesSlugRoute
   TreatmentsSlugRoute: typeof TreatmentsSlugRoute
+  DentalServicesIndexRoute: typeof DentalServicesIndexRoute
   TreatmentsIndexRoute: typeof TreatmentsIndexRoute
   TreatmentsCategoryCategoryRoute: typeof TreatmentsCategoryCategoryRoute
 }
@@ -211,6 +250,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dr-mehwish-zaman': {
+      id: '/dr-mehwish-zaman'
+      path: '/dr-mehwish-zaman'
+      fullPath: '/dr-mehwish-zaman'
+      preLoaderRoute: typeof DrMehwishZamanRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/hair-treatments': {
       id: '/hair-treatments'
       path: '/hair-treatments'
@@ -230,6 +276,20 @@ declare module '@tanstack/react-router' {
       path: '/skin-treatments'
       fullPath: '/skin-treatments'
       preLoaderRoute: typeof SkinTreatmentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-services/': {
+      id: '/dental-services/'
+      path: '/dental-services'
+      fullPath: '/dental-services/'
+      preLoaderRoute: typeof DentalServicesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dental-services/$slug': {
+      id: '/dental-services/$slug'
+      path: '/dental-services/$slug'
+      fullPath: '/dental-services/$slug'
+      preLoaderRoute: typeof DentalServicesSlugRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/treatments/': {
@@ -262,10 +322,13 @@ const rootRouteChildren: RootRouteChildren = {
   AestheticsRoute: AestheticsRoute,
   ClinicRoute: ClinicRoute,
   ContactRoute: ContactRoute,
+  DrMehwishZamanRoute: DrMehwishZamanRoute,
   HairTreatmentsRoute: HairTreatmentsRoute,
   SkinHairRoute: SkinHairRoute,
   SkinTreatmentsRoute: SkinTreatmentsRoute,
+  DentalServicesSlugRoute: DentalServicesSlugRoute,
   TreatmentsSlugRoute: TreatmentsSlugRoute,
+  DentalServicesIndexRoute: DentalServicesIndexRoute,
   TreatmentsIndexRoute: TreatmentsIndexRoute,
   TreatmentsCategoryCategoryRoute: TreatmentsCategoryCategoryRoute,
 }

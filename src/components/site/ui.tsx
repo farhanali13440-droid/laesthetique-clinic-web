@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { MessageCircle, ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import { clinic, whatsappLink } from "@/lib/site";
+import { clinic, whatsappForDental, whatsappLink } from "@/lib/site";
 import { cn } from "@/lib/utils";
 
 export const btnPrimary =
@@ -148,6 +148,61 @@ export function TreatmentCard({
       >
         Learn More <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
       </Link>
+    </Reveal>
+  );
+}
+
+export function DentalServiceCard({
+  name,
+  description,
+  image,
+  imageAlt,
+  slug,
+  delay = 0,
+}: {
+  name: string;
+  description: string;
+  image: string;
+  imageAlt: string;
+  slug: string;
+  delay?: number;
+}) {
+  return (
+    <Reveal as="article" delay={delay} className="group flex h-full flex-col">
+      <Link
+        to="/dental-services/$slug"
+        params={{ slug }}
+        className="overflow-hidden rounded-sm bg-sand"
+      >
+        <img
+          src={image}
+          alt={imageAlt}
+          loading="lazy"
+          width={960}
+          height={720}
+          className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+        />
+      </Link>
+      <h3 className="mt-5 font-display text-2xl text-espresso">{name}</h3>
+      <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{description}</p>
+      <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3">
+        <Link
+          to="/dental-services/$slug"
+          params={{ slug }}
+          className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary"
+        >
+          Learn More{" "}
+          <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+        </Link>
+        <a
+          href={whatsappForDental(name)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-xs uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-primary"
+        >
+          Book Appointment
+        </a>
+      </div>
     </Reveal>
   );
 }

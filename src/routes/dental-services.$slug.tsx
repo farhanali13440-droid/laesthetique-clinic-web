@@ -1,0 +1,198 @@
+import { createFileRoute, notFound, Link } from "@tanstack/react-router";
+import { Check, MessageCircle } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Reveal } from "@/components/site/Reveal";
+import { btnGhost, btnPrimary, CtaBand } from "@/components/site/ui";
+import { whatsappForDental, whatsappLink } from "@/lib/site";
+import { dentalDetail, getDentalService } from "@/lib/dental";
+
+export const Route = createFileRoute("/dental-services/$slug")({
+  loader: ({ params }) => {
+    const service = getDentalService(params.slug);
+    if (!service) throw notFound();
+    return { name: service.name, description: service.description, slug: service.slug };
+  },
+  head: ({ loaderData }) => {
+    if (!loaderData) {
+      return {
+        meta: [
+          { title: "Dental Service | La Esthetique" },
+          { name: "robots", content: "noindex" },
+        ],
+      };
+    }
+    const title = `${loaderData.name} in Islamabad | La Esthetique`;
+    const description = `${loaderData.description} Consult Dr. Mehwish Zaman at La Esthetique, F-11 Markaz, Islamabad.`;
+    return {
+      meta: [
+        { title },
+        { name: "description", content: description },
+        { property: "og:title", content: title },
+        { property: "og:description", content: description },
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: `/dental-services/${loaderData.slug}` },
+        { name: "twitter:card", content: "summary_large_image" },
+      ],
+      links: [{ rel: "canonical", href: `/dental-services/${loaderData.slug}` }],
+    };
+  },
+  component: DentalServicePage,
+});
+
+const whyPoints = [
+  "Examination-led dental care before any treatment begins",
+  "Findings and options explained in plain language",
+  "A calm, professional clinic in F-11 Markaz, Islamabad",
+  "Review appointments so your plan can be adjusted where needed",
+];
+
+function DentalServicePage() {
+  const { slug } = Route.useParams();
+  const service = getDentalService(slug);
+  if (!service) return null;
+  const detail = dentalDetail(service);
+
+  return (
+    <>
+      <section className="bg-sand/50 pt-28 pb-16 lg:pt-36 lg:pb-24">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-5 lg:grid-cols-2 lg:px-8">
+          <Reveal>
+            <p className="eyebrow">Dental Service</p>
+            <h1 className="rule-gold mt-4 font-display text-4xl text-espresso sm:text-5xl">
+              {service.name}
+            </h1>
+            <p className="mt-7 leading-relaxed text-muted-foreground">{service.description}</p>
+            <div className="mt-9 flex flex-wrap gap-3">
+              <a
+                href={whatsappForDental(service.name)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={btnPrimary}
+              >
+                Book a Dental Appointment
+              </a>
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={btnGhost}
+              >
+                <MessageCircle className="h-4 w-4" /> WhatsApp Us
+              </a>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <img
+              src={service.image}
+              alt={service.imageAlt}
+              width={960}
+              height={720}
+              className="h-[24rem] w-full rounded-sm object-cover lg:h-[30rem]"
+            />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-24">
+        <div className="grid gap-14 lg:grid-cols-[1.2fr_0.8fr]">
+          <Reveal>
+            <h2 className="font-display text-3xl text-espresso">About the Treatment</h2>
+            <p className="mt-5 leading-relaxed text-muted-foreground">{detail.about}</p>
+          </Reveal>
+          <Reveal delay={100} className="rounded-sm border border-border bg-card p-8">
+            <h2 className="font-display text-2xl text-espresso">Who May Benefit</h2>
+            <ul className="mt-5 space-y-4">
+              {detail.whoFor.map((w) => (
+                <li key={w} className="flex gap-3 text-sm leading-relaxed text-muted-foreground">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  {w}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-xs leading-relaxed text-muted-foreground/80">
+              Suitability is confirmed only after an individual dental examination.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="bg-sand/40 py-20 lg:py-24">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <Reveal>
+            <h2 className="rule-gold font-display text-3xl text-espresso">What to Expect</h2>
+          </Reveal>
+          <ol className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
+            {detail.expect.map((step, i) => (
+              <Reveal as="li" key={step.title} delay={i * 70}>
+                <p className="font-display text-3xl text-gold">
+                  {String(i + 1).padStart(2, "0")}
+                </p>
+                <h3 className="mt-3 font-display text-xl text-espresso">{step.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{step.copy}</p>
+              </Reveal>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-24">
+        <div className="grid gap-12 lg:grid-cols-2">
+          <Reveal>
+            <h2 className="rule-gold font-display text-3xl text-espresso">
+              Why Choose La Esthetique
+            </h2>
+            <p className="mt-6 leading-relaxed text-muted-foreground">
+              {service.name} is carried out at La Esthetique by Dr. Mehwish Zaman, in F-11 Markaz,
+              Islamabad.
+            </p>
+            <Link to="/dental-services" className={`${btnGhost} mt-8`}>
+              All Dental Services
+            </Link>
+          </Reveal>
+          <Reveal delay={100}>
+            <ul className="space-y-4">
+              {whyPoints.map((p) => (
+                <li key={p} className="flex gap-3 leading-relaxed text-muted-foreground">
+                  <Check className="mt-1 h-4 w-4 shrink-0 text-primary" />
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-4xl px-5 pb-20 lg:pb-24">
+        <Reveal>
+          <h2 className="rule-gold font-display text-3xl text-espresso">
+            Frequently Asked Questions
+          </h2>
+        </Reveal>
+        <Reveal className="mt-10">
+          <Accordion type="single" collapsible className="w-full">
+            {detail.faqs.map((f, i) => (
+              <AccordionItem key={f.q} value={`item-${i}`}>
+                <AccordionTrigger className="text-left font-display text-lg text-espresso">
+                  {f.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">
+                  {f.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Reveal>
+      </section>
+
+      <CtaBand
+        title="Book a Consultation with Dr. Mehwish Zaman"
+        copy={`Discuss ${service.name.toLowerCase()} at La Esthetique, F-11 Markaz, Islamabad.`}
+      />
+    </>
+  );
+}

@@ -44,14 +44,14 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-6 xl:flex">
+        <nav className="hidden items-center gap-5 xl:flex">
           {navLinks.map((l) => (
             <Link
               key={l.to}
               to={l.to}
               activeOptions={{ exact: l.to === "/" }}
               activeProps={{ className: "text-primary" }}
-              className="text-sm text-foreground/80 transition-colors hover:text-primary"
+              className="text-[0.82rem] text-foreground/80 transition-colors hover:text-primary"
             >
               {l.label}
             </Link>
@@ -60,7 +60,7 @@ export function Header() {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-sm bg-primary px-5 py-2.5 text-sm text-primary-foreground transition-colors hover:bg-espresso"
+            className="whitespace-nowrap rounded-sm bg-primary px-5 py-2.5 text-[0.82rem] text-primary-foreground transition-colors hover:bg-espresso"
           >
             Book Appointment
           </a>

@@ -7,6 +7,8 @@ import featureSkin from "@/assets/feature-skin.jpg";
 import featureCare from "@/assets/feature-care.jpg";
 import featureHair from "@/assets/feature-hair.jpg";
 import featureGlow from "@/assets/feature-glow.jpg";
+import drMehwish from "@/assets/dental/dr-mehwish-placeholder.jpg";
+import dentalHero from "@/assets/dental/dental-hero.jpg";
 
 /**
  * Central place for clinic details and imagery.
@@ -46,13 +48,60 @@ export const images = {
   care: featureCare,
   hair: featureHair,
   glow: featureGlow,
+  /** Placeholder portrait — replace with Dr. Mehwish Zaman's actual photo. */
+  drMehwish,
+  dentalRoom: dentalHero,
 };
 
 export const navLinks = [
   { label: "Home", to: "/" },
-  { label: "About Dr. Sumbleen", to: "/about" },
+  { label: "Dr. Sumbleen", to: "/about" },
+  { label: "Dr. Mehwish", to: "/dr-mehwish-zaman" },
   { label: "Skin Treatments", to: "/skin-treatments" },
   { label: "Hair Treatments", to: "/hair-treatments" },
+  { label: "Dental Services", to: "/dental-services" },
   { label: "Clinic", to: "/clinic" },
   { label: "Contact", to: "/contact" },
 ] as const;
+
+/** The two areas of expertise under the La Esthetique brand. */
+export const doctors = [
+  {
+    name: "Dr. Sumbleen Majid",
+    role: "Dermatologist",
+    focus: "Skin • Hair • Dermatology • Aesthetics",
+    to: "/about",
+    image: doctor.url,
+    imageAlt: "Dr. Sumbleen Majid, dermatologist at La Esthetique, Islamabad",
+  },
+  {
+    name: "Dr. Mehwish Zaman",
+    role: "Dentist",
+    focus: "General Dentistry • Cosmetic Dentistry • Orthodontics",
+    to: "/dr-mehwish-zaman",
+    image: drMehwish,
+    imageAlt: "Professional photo placeholder for Dr. Mehwish Zaman, dentist at La Esthetique",
+  },
+] as const;
+
+/**
+ * Editable placeholders for Dr. Mehwish Zaman.
+ * Leave an entry empty until the real detail is confirmed — empty entries are not rendered.
+ */
+export const mehwishProfile = {
+  qualifications: "",
+  certifications: "",
+  experience: "",
+  specializations: "",
+  memberships: "",
+};
+
+export function whatsappForDental(topic: string) {
+  return `https://wa.me/${clinic.whatsapp}?text=${encodeURIComponent(
+    `Hello La Esthetique, I would like to book a dental appointment for ${topic} with Dr. Mehwish Zaman.`,
+  )}`;
+}
+
+export const dentalWhatsappLink = `https://wa.me/${clinic.whatsapp}?text=${encodeURIComponent(
+  "Hi, I would like to request a dental appointment with Dr. Mehwish Zaman. Please let me know the available date and time.",
+)}`;
