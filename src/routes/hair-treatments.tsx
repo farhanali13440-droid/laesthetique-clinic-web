@@ -9,7 +9,7 @@ const title = "Aesthetic Treatments | Botox & Fillers in Islamabad | La Esthetiq
 const description =
   "Subtle, natural-looking aesthetic treatments — Botox, fillers, threads, PRP microneedling and skin rejuvenation with Dr. Sumbleen Majid, Islamabad.";
 
-export const Route = createFileRoute("/aesthetics")({
+export const Route = createFileRoute("/hair-treatments")({
   component: Aesthetics,
   head: () => ({
     meta: [

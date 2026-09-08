@@ -8,7 +8,7 @@ const title = "Skin & Hair Concerns | Skin Specialist in Islamabad | La Esthetiq
 const description =
   "Acne, acne scars, pigmentation, skin texture, hair thinning and scalp health — assessed and treated by Dr. Sumbleen Majid in F-11 Markaz, Islamabad.";
 
-export const Route = createFileRoute("/skin-hair")({
+export const Route = createFileRoute("/skin-treatments")({
   component: SkinHair,
   head: () => ({
     meta: [
