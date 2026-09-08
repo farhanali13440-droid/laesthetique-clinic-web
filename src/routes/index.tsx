@@ -5,7 +5,8 @@ import { GoogleReviews } from "@/components/site/GoogleReviews";
 import { Reveal } from "@/components/site/Reveal";
 import { Gallery } from "@/components/site/Gallery";
 import { btnGhost, btnPrimary, CtaBand, SectionHeading } from "@/components/site/ui";
-import { clinic, images, whatsappLink } from "@/lib/site";
+import { clinic, doctors, images, whatsappLink } from "@/lib/site";
+import { featuredDentalSlugs, getDentalService } from "@/lib/dental";
 
 const title = "Dr. Sumbleen Majid | Dermatologist in Islamabad | La Esthetique";
 const description =
@@ -238,6 +239,105 @@ function Home() {
           <Link to="/clinic" className={btnGhost}>
             Experience La Esthetique
           </Link>
+        </div>
+      </section>
+
+      {/* DENTAL DEPARTMENT */}
+      <section className="bg-sand/40 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <div className="grid items-center gap-14 lg:grid-cols-[0.85fr_1.15fr]">
+            <Reveal className="relative mx-auto w-full max-w-sm">
+              <div className="absolute -inset-3 rounded-sm border border-primary/35" aria-hidden />
+              <img
+                src={images.drMehwish}
+                alt="Professional photo placeholder for Dr. Mehwish Zaman, dentist at La Esthetique"
+                loading="lazy"
+                width={960}
+                height={1200}
+                className="relative w-full rounded-sm object-cover"
+              />
+            </Reveal>
+            <Reveal delay={100}>
+              <p className="eyebrow">Dentistry</p>
+              <h2 className="rule-gold mt-4 font-display text-3xl text-espresso sm:text-4xl">
+                Comprehensive Dental Care at La Esthetique
+              </h2>
+              <p className="mt-7 leading-relaxed text-muted-foreground">
+                Dr. Mehwish Zaman provides personalized dental care, from preventive and restorative
+                dentistry to cosmetic and orthodontic treatments.
+              </p>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Link to="/dental-services" className={btnPrimary}>
+                  Explore Dental Services
+                </Link>
+                <Link to="/dr-mehwish-zaman" className={btnGhost}>
+                  Meet Dr. Mehwish
+                </Link>
+              </div>
+            </Reveal>
+          </div>
+
+          <div className="mt-16 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            {featuredDentalSlugs.map((slug, i) => {
+              const service = getDentalService(slug);
+              if (!service) return null;
+              return (
+                <Reveal as="article" key={slug} delay={i * 70} className="group">
+                  <Link
+                    to="/dental-services/$slug"
+                    params={{ slug }}
+                    className="block overflow-hidden rounded-sm bg-sand"
+                  >
+                    <img
+                      src={service.image}
+                      alt={service.imageAlt}
+                      loading="lazy"
+                      width={960}
+                      height={720}
+                      className="h-48 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                  </Link>
+                  <h3 className="mt-4 font-display text-xl text-espresso">{service.name}</h3>
+                  <Link
+                    to="/dental-services/$slug"
+                    params={{ slug }}
+                    className="mt-3 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary"
+                  >
+                    Learn More <ArrowRight className="h-3.5 w-3.5" />
+                  </Link>
+                </Reveal>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* MEET OUR DOCTORS */}
+      <section className="mx-auto max-w-7xl px-5 py-20 lg:px-8 lg:py-28">
+        <SectionHeading eyebrow="La Esthetique" title="Meet Our Doctors" />
+        <div className="mt-14 grid gap-10 lg:grid-cols-2">
+          {doctors.map((d, i) => (
+            <Reveal as="article" key={d.name} delay={i * 90} className="group">
+              <Link to={d.to} className="block overflow-hidden rounded-sm bg-sand">
+                <img
+                  src={d.image}
+                  alt={d.imageAlt}
+                  loading="lazy"
+                  className="h-[26rem] w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                />
+              </Link>
+              <h3 className="mt-6 font-display text-2xl text-espresso">{d.name}</h3>
+              <p className="mt-1 text-sm uppercase tracking-[0.18em] text-primary">{d.role}</p>
+              <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{d.focus}</p>
+              <Link
+                to={d.to}
+                className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary"
+              >
+                View Profile{" "}
+                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Reveal>
+          ))}
         </div>
       </section>
 
