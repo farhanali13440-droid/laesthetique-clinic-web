@@ -50,7 +50,8 @@ const whyPoints = [
 
 function TreatmentPage() {
   const { slug } = Route.useParams();
-  const treatment = getTreatment(slug)!;
+  const treatment = getTreatment(slug);
+  if (!treatment) return null;
   const detail = treatmentDetail(treatment);
 
   return (
@@ -81,7 +82,9 @@ function TreatmentPage() {
           <Reveal delay={120} className="relative">
             <img
               src={treatment.image}
-              alt={`${treatment.name} at La Esthetique, Islamabad`}
+              alt={treatment.imageAlt}
+              width={960}
+              height={720}
               className="h-[24rem] w-full rounded-sm object-cover lg:h-[30rem]"
             />
           </Reveal>
