@@ -39,7 +39,7 @@ export function Header() {
               LA ESTHETIQUE
             </span>
             <span className="block truncate text-[0.62rem] uppercase tracking-[0.22em] text-muted-foreground">
-              Dermatology · Skin · Aesthetics
+              Skin · Hair · Aesthetics · Dental
             </span>
           </span>
         </Link>
