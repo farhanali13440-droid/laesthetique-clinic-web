@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MessageCircle, MapPin, Facebook, Instagram } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import { AppointmentForm } from "@/components/site/AppointmentForm";
+import { btnPrimary } from "@/components/site/ui";
 import { clinic, whatsappLink } from "@/lib/site";
 
 const title = "Book an Appointment | Dermatologist in Islamabad | La Esthetique";
@@ -35,7 +35,7 @@ function Contact() {
               Book Your Consultation
             </h1>
             <p className="mt-6 leading-relaxed text-muted-foreground">
-              Send your details below, or reach the clinic directly by phone or WhatsApp.
+              Request an appointment directly through WhatsApp, or call the clinic to speak with the team.
             </p>
           </Reveal>
         </div>
@@ -99,11 +99,12 @@ function Contact() {
           </div>
         </Reveal>
 
-        <Reveal delay={100} className="rounded-sm border border-border bg-card p-7 lg:p-9">
+        <Reveal delay={100} className="flex flex-col justify-center bg-sand/40 p-8 lg:p-12">
           <h2 className="font-display text-2xl text-espresso">Request an Appointment</h2>
-          <div className="mt-6">
-            <AppointmentForm />
-          </div>
+          <p className="mt-4 leading-relaxed text-muted-foreground">Open a WhatsApp chat with La Esthetique to ask for the available date and time. You can review the message before sending it.</p>
+          <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-7 self-start`}>
+            <MessageCircle className="h-4 w-4" /> Request Appointment
+          </a>
         </Reveal>
       </section>
     </>

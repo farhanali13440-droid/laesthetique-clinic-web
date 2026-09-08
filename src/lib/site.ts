@@ -21,7 +21,7 @@ export const clinic = {
   phoneTel: "+923005013111",
   whatsapp: "923005013111",
   whatsappMessage:
-    "Hello La Esthetique, I would like to book an appointment with Dr. Sumbleen Majid.",
+    "Hi, I would like to request an appointment. Please let me know the available date and time.",
   facebook: "https://www.facebook.com/laesthetiqueisb",
   instagram: "https://www.instagram.com/laesthetique.isb",
 };
@@ -51,9 +51,8 @@ export const images = {
 export const navLinks = [
   { label: "Home", to: "/" },
   { label: "About Dr. Sumbleen", to: "/about" },
-  { label: "Treatments", to: "/treatments" },
-  { label: "Skin & Hair", to: "/skin-hair" },
-  { label: "Aesthetics", to: "/aesthetics" },
+  { label: "Skin Treatments", to: "/skin-treatments" },
+  { label: "Hair Treatments", to: "/hair-treatments" },
   { label: "Clinic", to: "/clinic" },
   { label: "Contact", to: "/contact" },
 ] as const;

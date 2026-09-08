@@ -54,9 +54,9 @@ export function PageHero({
           </h1>
           <p className="mt-6 max-w-xl leading-relaxed text-muted-foreground">{copy}</p>
           <div className="mt-9 flex flex-wrap gap-3">
-            <Link to="/contact" className={btnPrimary}>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
               Book an Appointment
-            </Link>
+            </a>
             <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={btnGhost}>
               <MessageCircle className="h-4 w-4" /> WhatsApp Us
             </a>
@@ -89,12 +89,14 @@ export function CtaBand({
           <h2 className="font-display text-3xl sm:text-4xl">{title}</h2>
           <p className="mt-5 leading-relaxed text-background/75">{copy}</p>
           <div className="mt-9 flex flex-wrap justify-center gap-3">
-            <Link
-              to="/contact"
+            <a
+              href={whatsappLink}
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 rounded-sm bg-gold px-7 py-3.5 text-sm uppercase tracking-[0.14em] text-espresso transition-opacity hover:opacity-90"
             >
               Book an Appointment
-            </Link>
+            </a>
             <a
               href={whatsappLink}
               target="_blank"

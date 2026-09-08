@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { btnPrimary, CtaBand } from "@/components/site/ui";
-import { clinic, images } from "@/lib/site";
+import { clinic, images, whatsappLink } from "@/lib/site";
 
 const title = "About Dr. Sumbleen Majid | Dermatologist in Islamabad | La Esthetique";
 const description =
@@ -70,9 +70,9 @@ function About() {
               combines clinical dermatology with advanced aesthetic treatments to help patients
               achieve healthy, refreshed and natural-looking results.
             </p>
-            <Link to="/contact" className={`${btnPrimary} mt-9`}>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-9`}>
               Book an Appointment
-            </Link>
+            </a>
           </Reveal>
         </div>
       </section>

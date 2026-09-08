@@ -1,7 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Facebook, Instagram } from "lucide-react";
 import { clinic, images, navLinks, whatsappLink } from "@/lib/site";
-import { treatmentCategories } from "@/lib/treatments";
 
 export function Footer() {
   return (
@@ -34,17 +33,16 @@ export function Footer() {
         <div>
           <h3 className="text-xs uppercase tracking-[0.2em] text-gold">Treatments</h3>
           <ul className="mt-5 space-y-2.5 text-sm">
-            {treatmentCategories.map((c) => (
-              <li key={c.slug}>
-                <Link
-                  to="/treatments/category/$category"
-                  params={{ category: c.slug }}
-                  className="text-background/70 hover:text-background"
-                >
-                  {c.name}
-                </Link>
-              </li>
-            ))}
+            <li>
+              <Link to="/skin-treatments" className="text-background/70 hover:text-background">
+                Skin Treatments
+              </Link>
+            </li>
+            <li>
+              <Link to="/hair-treatments" className="text-background/70 hover:text-background">
+                Hair Treatments
+              </Link>
+            </li>
           </ul>
         </div>
         <div>
