@@ -167,6 +167,13 @@ export const treatmentCategories: TreatmentCategory[] = [
         images.treatmentRoom,
         "skin-dermatology",
       ),
+      t(
+        "Painless Laser Treatments",
+        "painless-laser-treatments",
+        "Modern laser-based options selected around your skin concern, comfort and individual assessment.",
+        images.treatmentRoom,
+        "skin-dermatology",
+      ),
     ],
   },
   {

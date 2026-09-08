@@ -1,15 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
-import { Menu, Phone, MessageCircle, CalendarDays, ChevronDown } from "lucide-react";
+import { Menu, Phone, MessageCircle, CalendarDays } from "lucide-react";
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
 import { clinic, images, navLinks, whatsappLink } from "@/lib/site";
-
-const treatmentMenu = [
-  { label: "Skin & Dermatology", slug: "skin-dermatology" },
-  { label: "Hair & Scalp", slug: "hair-scalp" },
-  { label: "Aesthetic Treatments", slug: "aesthetic-treatments" },
-];
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -51,47 +45,17 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 xl:flex">
-          {navLinks.map((l) =>
-            l.to === "/treatments" ? (
-              <div key={l.to} className="group relative">
-                <Link
-                  to="/treatments"
-                  className="inline-flex items-center gap-1 py-2 text-sm text-foreground/80 transition-colors hover:text-primary [&.active]:text-primary"
-                  activeProps={{ className: "text-primary" }}
-                >
-                  {l.label} <ChevronDown className="h-3.5 w-3.5" />
-                </Link>
-                <div className="invisible absolute left-1/2 top-full z-50 w-60 -translate-x-1/2 translate-y-1 rounded-sm border border-border bg-background p-2 opacity-0 shadow-sm transition-all duration-200 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                  {treatmentMenu.map((m) => (
-                    <Link
-                      key={m.slug}
-                      to="/treatments/category/$category"
-                      params={{ category: m.slug }}
-                      className="block rounded-sm px-3 py-2.5 text-sm text-foreground/80 transition-colors hover:bg-sand hover:text-primary"
-                    >
-                      {m.label}
-                    </Link>
-                  ))}
-                  <Link
-                    to="/treatments"
-                    className="mt-1 block border-t border-border px-3 pt-3 pb-2 text-xs uppercase tracking-[0.16em] text-primary"
-                  >
-                    View All Treatments
-                  </Link>
-                </div>
-              </div>
-            ) : (
-              <Link
-                key={l.to}
-                to={l.to}
-                activeOptions={{ exact: l.to === "/" }}
-                activeProps={{ className: "text-primary" }}
-                className="text-sm text-foreground/80 transition-colors hover:text-primary"
-              >
-                {l.label}
-              </Link>
-            ),
-          )}
+          {navLinks.map((l) => (
+            <Link
+              key={l.to}
+              to={l.to}
+              activeOptions={{ exact: l.to === "/" }}
+              activeProps={{ className: "text-primary" }}
+              className="text-sm text-foreground/80 transition-colors hover:text-primary"
+            >
+              {l.label}
+            </Link>
+          ))}
           <Link
             to="/contact"
             className="rounded-sm bg-primary px-5 py-2.5 text-sm text-primary-foreground transition-colors hover:bg-espresso"
@@ -127,20 +91,6 @@ export function Header() {
                     {l.label}
                   </Link>
                 ))}
-                <div className="mt-4 space-y-1">
-                  <p className="eyebrow">Treatment Categories</p>
-                  {treatmentMenu.map((m) => (
-                    <Link
-                      key={m.slug}
-                      to="/treatments/category/$category"
-                      params={{ category: m.slug }}
-                      onClick={() => setOpen(false)}
-                      className="block py-2 text-sm text-muted-foreground"
-                    >
-                      {m.label}
-                    </Link>
-                  ))}
-                </div>
                 <Link
                   to="/contact"
                   onClick={() => setOpen(false)}
