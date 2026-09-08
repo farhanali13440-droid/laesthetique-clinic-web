@@ -11,6 +11,8 @@ import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
 import { Toaster } from "@/components/ui/sonner";
+import { Header, MobileCtaBar } from "@/components/site/Header";
+import { Footer } from "@/components/site/Footer";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 
@@ -129,8 +131,13 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <div className="overflow-x-hidden pb-16 lg:pb-0">
+        <Header />
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Footer />
+        <MobileCtaBar />
+      </div>
       <Toaster position="top-center" />
     </QueryClientProvider>
   );
