@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/accordion";
 import { Reveal } from "@/components/site/Reveal";
 import { btnGhost, btnPrimary, CtaBand } from "@/components/site/ui";
-import { clinic, whatsappFor } from "@/lib/site";
+import { clinic, whatsappLink } from "@/lib/site";
 import { getTreatment, treatmentDetail } from "@/lib/treatments";
 
 export const Route = createFileRoute("/treatments/$slug")({
@@ -65,11 +65,11 @@ function TreatmentPage() {
             </h1>
             <p className="mt-7 leading-relaxed text-muted-foreground">{treatment.description}</p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link to="/contact" className={btnPrimary}>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
                 Book a Consultation
-              </Link>
+              </a>
               <a
-                href={whatsappFor(treatment.name)}
+                href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={btnGhost}

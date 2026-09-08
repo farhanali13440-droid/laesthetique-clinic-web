@@ -93,9 +93,9 @@ function Home() {
               needs, with care you can trust.
             </p>
             <div className="mt-9 flex flex-wrap gap-3">
-              <Link to="/contact" className={btnPrimary}>
+              <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={btnPrimary}>
                 Book an Appointment
-              </Link>
+              </a>
               <a
                 href={whatsappLink}
                 target="_blank"

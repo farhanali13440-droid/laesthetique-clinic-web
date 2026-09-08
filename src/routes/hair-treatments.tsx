@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { btnPrimary, CtaBand, TreatmentCard } from "@/components/site/ui";
-import { images } from "@/lib/site";
+import { images, whatsappLink } from "@/lib/site";
 import { getTreatment, type Treatment } from "@/lib/treatments";
 
 const title = "Hair Treatments in Islamabad | La Esthetique";
@@ -34,7 +34,7 @@ function HairTreatments() {
             <p className="eyebrow">Hair &amp; Scalp Care</p>
             <h1 className="rule-gold mt-5 font-display text-4xl leading-[1.12] text-espresso sm:text-5xl">Personalized Hair Treatments</h1>
             <p className="mt-7 max-w-xl leading-relaxed text-muted-foreground">Hair thinning, hair loss and scalp concerns are assessed individually before a personalized treatment plan is discussed with you.</p>
-            <Link to="/contact" className={`${btnPrimary} mt-9`}>Book a Consultation</Link>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-9`}>Book a Consultation</a>
           </Reveal>
           <Reveal delay={120}><img src={images.hair} alt="Hair and scalp treatment at La Esthetique" className="h-[24rem] w-full rounded-sm object-cover lg:h-[32rem]" /></Reveal>
         </div>
@@ -57,7 +57,7 @@ function HairTreatments() {
             <p className="eyebrow">Assessment First</p>
             <h2 className="mt-4 font-display text-3xl text-espresso sm:text-4xl">Hair &amp; Scalp Care Built Around You</h2>
             <p className="mt-6 leading-relaxed text-muted-foreground">Hair and scalp concerns can have different causes. Dr. Sumbleen begins with an individual consultation before discussing whether PRP, exosome-based care or another approach may be suitable.</p>
-            <Link to="/contact" className={`${btnPrimary} mt-9`}>Discuss Your Hair Concern</Link>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-9`}>Discuss Your Hair Concern</a>
           </Reveal>
         </div>
       </section>

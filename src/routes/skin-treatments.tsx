@@ -1,7 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import { Reveal } from "@/components/site/Reveal";
 import { btnPrimary, CtaBand, SectionHeading, TreatmentCard } from "@/components/site/ui";
-import { images } from "@/lib/site";
+import { images, whatsappLink } from "@/lib/site";
 import { getTreatment, type Treatment } from "@/lib/treatments";
 
 const title = "Skin Treatments in Islamabad | La Esthetique";
@@ -43,7 +43,7 @@ function SkinTreatments() {
             <p className="eyebrow">Skin, Facial &amp; Aesthetic Care</p>
             <h1 className="rule-gold mt-4 font-display text-4xl text-espresso sm:text-5xl">Skin Treatments</h1>
             <p className="mt-7 max-w-xl leading-relaxed text-muted-foreground">Explore advanced dermatology, skin rejuvenation, laser and aesthetic treatments, organized to help you find the care most relevant to your concern.</p>
-            <Link to="/contact" className={`${btnPrimary} mt-9`}>Book a Skin Consultation</Link>
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={`${btnPrimary} mt-9`}>Book a Skin Consultation</a>
           </Reveal>
           <Reveal delay={120}><img src={images.skin} alt="Skin treatment consultation at La Esthetique" className="h-[24rem] w-full rounded-sm object-cover lg:h-[30rem]" /></Reveal>
         </div>

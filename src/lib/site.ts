@@ -21,7 +21,7 @@ export const clinic = {
   phoneTel: "+923005013111",
   whatsapp: "923005013111",
   whatsappMessage:
-    "Hello La Esthetique, I would like to book an appointment with Dr. Sumbleen Majid.",
+    "Hi, I would like to request an appointment. Please let me know the available date and time.",
   facebook: "https://www.facebook.com/laesthetiqueisb",
   instagram: "https://www.instagram.com/laesthetique.isb",
 };

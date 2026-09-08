@@ -56,21 +56,25 @@ export function Header() {
               {l.label}
             </Link>
           ))}
-          <Link
-            to="/contact"
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="rounded-sm bg-primary px-5 py-2.5 text-sm text-primary-foreground transition-colors hover:bg-espresso"
           >
             Book Appointment
-          </Link>
+          </a>
         </nav>
 
         <div className="flex items-center gap-2 xl:hidden">
-          <Link
-            to="/contact"
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hidden rounded-sm bg-primary px-4 py-2 text-sm text-primary-foreground sm:inline-block"
           >
             Book Appointment
-          </Link>
+          </a>
           <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
               aria-label="Open menu"
@@ -91,13 +95,15 @@ export function Header() {
                     {l.label}
                   </Link>
                 ))}
-                <Link
-                  to="/contact"
+                <a
+                  href={whatsappLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() => setOpen(false)}
                   className="mt-6 rounded-sm bg-primary px-5 py-3 text-center text-sm text-primary-foreground"
                 >
                   Book Appointment
-                </Link>
+                </a>
                 <a
                   href={whatsappLink}
                   target="_blank"
@@ -132,12 +138,14 @@ export function MobileCtaBar() {
       >
         <MessageCircle className="h-4 w-4 text-primary" /> WhatsApp
       </a>
-      <Link
-        to="/contact"
+      <a
+        href={whatsappLink}
+        target="_blank"
+        rel="noopener noreferrer"
         className="flex flex-col items-center gap-1 bg-primary py-3 text-[0.68rem] uppercase tracking-[0.12em] text-primary-foreground"
       >
         <CalendarDays className="h-4 w-4" /> Book
-      </Link>
+      </a>
     </div>
   );
 }
