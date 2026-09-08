@@ -1,4 +1,25 @@
 import { images } from "@/lib/site";
+import advancedSkincareImage from "@/assets/treatments/advanced-skincare.jpg";
+import acneScarImage from "@/assets/treatments/acne-scar-treatment.jpg";
+import chemicalPeelImage from "@/assets/treatments/chemical-peel.jpg";
+import ledLightTherapyImage from "@/assets/treatments/led-light-therapy.jpg";
+import hydrafacialImage from "@/assets/treatments/hydrafacial.jpg";
+import hydrafacialQSwitchedImage from "@/assets/treatments/hydrafacial-q-switched.jpg";
+import hydrafacialOxygeneoImage from "@/assets/treatments/hydrafacial-oxygeneo.jpg";
+import carbonHollywoodFacialImage from "@/assets/treatments/carbon-hollywood-facial.jpg";
+import skinTagRemovalImage from "@/assets/treatments/skin-tag-removal.jpg";
+import laserTattooRemovalImage from "@/assets/treatments/laser-tattoo-removal.jpg";
+import painlessLaserTreatmentsImage from "@/assets/treatments/painless-laser-treatments.jpg";
+import prpScalpImage from "@/assets/treatments/prp-scalp.jpg";
+import hairExosomesImage from "@/assets/treatments/hair-exosomes.jpg";
+import laserHairRemovalImage from "@/assets/treatments/laser-hair-removal.jpg";
+import botoxImage from "@/assets/treatments/botox.jpg";
+import underEyeFillersImage from "@/assets/treatments/under-eye-fillers.jpg";
+import threadsLiftingImage from "@/assets/treatments/threads-lifting.jpg";
+import prpMicroneedlingImage from "@/assets/treatments/prp-microneedling-thread-lift.jpg";
+import antiAgingImage from "@/assets/treatments/anti-aging.jpg";
+import ivGlowDripImage from "@/assets/treatments/iv-glow-drip.jpg";
+import vampireFacialImage from "@/assets/treatments/vampire-facial.jpg";
 
 export type TreatmentDetail = {
   about: string;
@@ -12,6 +33,7 @@ export type Treatment = {
   slug: string;
   description: string;
   image: string;
+  imageAlt: string;
   categorySlug: string;
   detail?: TreatmentDetail | undefined;
 };
@@ -63,9 +85,10 @@ const t = (
   slug: string,
   description: string,
   image: string,
+  imageAlt: string,
   categorySlug: string,
   detail?: TreatmentDetail,
-): Treatment => ({ name, slug, description, image, categorySlug, detail });
+): Treatment => ({ name, slug, description, image, imageAlt, categorySlug, detail });
 
 export const treatmentCategories: TreatmentCategory[] = [
   {
@@ -79,14 +102,16 @@ export const treatmentCategories: TreatmentCategory[] = [
         "Advanced Skincare Treatments",
         "advanced-skincare",
         "Personalized treatments using advanced techniques to improve skin health, texture, tone and overall appearance.",
-        images.skin,
+        advancedSkincareImage,
+        "Dermatologist examining a patient's skin during an advanced skincare consultation",
         "skin-dermatology",
       ),
       t(
         "Acne Scars Customized Treatments",
         "acne-scar-treatment",
         "Customized protocols that target different types of acne scarring to refine skin texture and tone.",
-        images.skin,
+        acneScarImage,
+        "Dermatologist assessing acne scarring on a patient's cheek",
         "skin-dermatology",
         {
           about:
@@ -104,21 +129,24 @@ export const treatmentCategories: TreatmentCategory[] = [
         "Chemical Peel",
         "chemical-peel",
         "A controlled exfoliation treatment designed to refresh the skin, improve texture and brighten the complexion.",
-        images.care,
+        chemicalPeelImage,
+        "Clinician applying a professional chemical peel treatment to a patient's face",
         "skin-dermatology",
       ),
       t(
         "LED Light Therapy",
         "led-light-therapy",
         "A gentle, non-invasive treatment using targeted LED light to support healthier, clearer-looking skin.",
-        images.care,
+        ledLightTherapyImage,
+        "Patient receiving red LED light therapy in a modern dermatology clinic",
         "skin-dermatology",
       ),
       t(
         "HydraFacial",
         "hydrafacial",
         "Cleanse, exfoliate, extract and hydrate in one refreshing session with no downtime.",
-        images.care,
+        hydrafacialImage,
+        "Clinician performing a HydraFacial-style hydradermabrasion treatment",
         "skin-dermatology",
         {
           about:
@@ -136,42 +164,48 @@ export const treatmentCategories: TreatmentCategory[] = [
         "HydraFacial with Q-Switched Laser",
         "hydrafacial-q-switched",
         "A combined treatment to cleanse and hydrate the skin while targeting pigmentation and uneven tone.",
-        images.care,
+        hydrafacialQSwitchedImage,
+        "Patient receiving a Q-switched laser facial treatment with protective eyewear",
         "skin-dermatology",
       ),
       t(
         "HydraFacial with OxyGeneo",
         "hydrafacial-oxygeneo",
         "A combination treatment that cleanses, exfoliates and hydrates while refreshing the complexion.",
-        images.care,
+        hydrafacialOxygeneoImage,
+        "Oxygenating facial treatment equipment prepared in a premium clinical setting",
         "skin-dermatology",
       ),
       t(
         "Carbon Hollywood Facial",
         "carbon-hollywood-facial",
         "A non-invasive laser facial designed to deep-clean pores and improve overall brightness and texture.",
-        images.glow,
+        carbonHollywoodFacialImage,
+        "Clinician performing a carbon laser facial treatment with protective eyewear",
         "skin-dermatology",
       ),
       t(
         "Skin Tag Removal",
         "skin-tag-removal",
         "A targeted in-clinic treatment to remove unwanted skin tags and restore a smoother skin surface.",
-        images.skin,
+        skinTagRemovalImage,
+        "Dermatologist carrying out a precise skin tag assessment and removal procedure",
         "skin-dermatology",
       ),
       t(
         "Laser Tattoo Removal",
         "laser-tattoo-removal",
         "Advanced laser treatment designed to gradually break down unwanted tattoo pigment.",
-        images.treatmentRoom,
+        laserTattooRemovalImage,
+        "Clinician using a laser device to treat a small forearm tattoo",
         "skin-dermatology",
       ),
       t(
         "Painless Laser Treatments",
         "painless-laser-treatments",
         "Modern laser-based options selected around your skin concern, comfort and individual assessment.",
-        images.treatmentRoom,
+        painlessLaserTreatmentsImage,
+        "Modern dermatology laser treatment consultation in a premium clinic",
         "skin-dermatology",
       ),
     ],
@@ -187,7 +221,8 @@ export const treatmentCategories: TreatmentCategory[] = [
         "PRP Scalp Treatment",
         "prp-scalp",
         "Platelet-rich plasma therapy to support scalp health and healthier-looking hair.",
-        images.hair,
+        prpScalpImage,
+        "Clinician performing a professional PRP scalp treatment",
         "hair-scalp",
         {
           about:
@@ -205,14 +240,16 @@ export const treatmentCategories: TreatmentCategory[] = [
         "Hair Exosomes",
         "hair-exosomes",
         "An advanced hair rejuvenation treatment using exosome-based therapy to support scalp and follicle health.",
-        images.hair,
+        hairExosomesImage,
+        "Hair specialist examining a patient's scalp before an exosome treatment",
         "hair-scalp",
       ),
       t(
         "Laser Hair Removal",
         "laser-hair-removal",
         "Advanced laser sessions to reduce unwanted hair and keep skin feeling smoother for longer.",
-        images.treatmentRoom,
+        laserHairRemovalImage,
+        "Modern laser hair removal equipment prepared in a dermatology treatment room",
         "hair-scalp",
         {
           about:
@@ -239,7 +276,8 @@ export const treatmentCategories: TreatmentCategory[] = [
         "Botox Treatments",
         "botox",
         "Precise, restrained treatment to soften the appearance of fine lines while keeping expression natural.",
-        images.glow,
+        botoxImage,
+        "Doctor mapping facial expression lines during a Botox consultation",
         "aesthetic-treatments",
         {
           about:
@@ -257,28 +295,32 @@ export const treatmentCategories: TreatmentCategory[] = [
         "Under-Eye Fillers",
         "under-eye-fillers",
         "A minimally invasive treatment designed to address under-eye hollows and restore subtle volume.",
-        images.glow,
+        underEyeFillersImage,
+        "Doctor assessing a patient's under-eye area before a filler treatment",
         "aesthetic-treatments",
       ),
       t(
         "Threads Lifting",
         "threads-lifting",
         "A non-surgical treatment designed to lift sagging skin and refine facial contours.",
-        images.glow,
+        threadsLiftingImage,
+        "Doctor marking facial contours before a thread lifting treatment",
         "aesthetic-treatments",
       ),
       t(
         "PRP Microneedling with Thread Lift",
         "prp-microneedling-thread-lift",
         "A combination treatment to improve skin texture, support collagen and provide a subtle lifting effect.",
-        images.care,
+        prpMicroneedlingImage,
+        "Clinician performing professional PRP microneedling facial care",
         "aesthetic-treatments",
       ),
       t(
         "Anti-Aging Treatments",
         "anti-aging",
         "Biostimulators, RF microneedling, threads, Botox and fillers — selected around your individual needs.",
-        images.glow,
+        antiAgingImage,
+        "Mature patient discussing a personalized anti-aging skin plan with a doctor",
         "aesthetic-treatments",
         {
           about:
@@ -304,14 +346,16 @@ export const treatmentCategories: TreatmentCategory[] = [
         "IV Glow Drip",
         "iv-glow-drip",
         "A wellness-focused IV infusion designed to support hydration and deliver selected vitamins and nutrients.",
-        images.care,
+        ivGlowDripImage,
+        "Patient receiving a supervised IV wellness drip in a premium clinic",
         "wellness-glow",
       ),
       t(
         "Vampire Facial",
         "vampire-facial",
         "A PRP-based rejuvenation treatment to support collagen and improve skin texture and tone.",
-        images.skin,
+        vampireFacialImage,
+        "Platelet-rich facial rejuvenation serum and treatment equipment in a clinical room",
         "wellness-glow",
       ),
     ],

@@ -116,12 +116,14 @@ export function TreatmentCard({
   name,
   description,
   image,
+  imageAlt,
   slug,
   delay = 0,
 }: {
   name: string;
   description: string;
   image: string;
+  imageAlt: string;
   slug: string;
   delay?: number;
 }) {
@@ -130,8 +132,10 @@ export function TreatmentCard({
       <Link to="/treatments/$slug" params={{ slug }} className="overflow-hidden rounded-sm bg-sand">
         <img
           src={image}
-          alt={name}
+          alt={imageAlt}
           loading="lazy"
+          width={960}
+          height={720}
           className="h-72 w-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
       </Link>
