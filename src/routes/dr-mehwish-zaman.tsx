@@ -28,6 +28,7 @@ export const Route = createFileRoute("/dr-mehwish-zaman")({
           "@context": "https://schema.org",
           "@type": "Dentist",
           name: "Dr. Mehwish Zaman — La Esthetique",
+          jobTitle: "Dentist / Aesthetic Physician",
           description,
           telephone: clinic.phoneTel,
           address: {
@@ -76,10 +77,10 @@ function DrMehwish() {
             <div className="absolute -inset-3 rounded-sm border border-primary/35" aria-hidden />
             <img
               src={images.drMehwish}
-              alt="Professional photo placeholder for Dr. Mehwish Zaman, dentist at La Esthetique, Islamabad"
-              width={960}
-              height={1200}
-              className="relative w-full rounded-sm object-cover"
+              alt="Dr. Mehwish Zaman, dentist and aesthetic physician at La Esthetique, Islamabad"
+              width={769}
+              height={1025}
+              className="relative aspect-[769/1025] w-full rounded-sm object-contain"
             />
           </Reveal>
           <Reveal delay={100}>
@@ -88,8 +89,13 @@ function DrMehwish() {
               Dr. Mehwish Zaman
             </h1>
             <p className="mt-5 text-sm uppercase tracking-[0.18em] text-muted-foreground">
-              Dentist at La Esthetique, Islamabad
+              Dentist / Aesthetic Physician
             </p>
+            <div className="mt-5 space-y-1 text-sm leading-relaxed text-muted-foreground">
+              <p>BDS, MDS Res/Endo, C. Implantology, MRCS UK</p>
+              <p>Member Royal College of Surgeons Edinburgh UK</p>
+              <p>Diplomate American Board of Aesthetics USA</p>
+            </div>
             <p className="mt-7 max-w-xl leading-relaxed text-muted-foreground">
               Providing personalized dental care focused on healthy teeth, comfortable treatment and
               confident smiles.

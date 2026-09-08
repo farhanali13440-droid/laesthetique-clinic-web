@@ -254,11 +254,11 @@ function Home() {
               <div className="absolute -inset-3 rounded-sm border border-primary/35" aria-hidden />
               <img
                 src={images.drMehwish}
-                alt="Professional photo placeholder for Dr. Mehwish Zaman, dentist at La Esthetique"
+                alt="Dr. Mehwish Zaman, dentist and aesthetic physician at La Esthetique"
                 loading="lazy"
-                width={960}
-                height={1200}
-                className="relative w-full rounded-sm object-cover"
+                width={769}
+                height={1025}
+                className="relative aspect-[769/1025] w-full rounded-sm object-contain"
               />
             </Reveal>
             <Reveal delay={100}>
@@ -267,8 +267,8 @@ function Home() {
                 Comprehensive Dental Care at La Esthetique
               </h2>
               <p className="mt-7 leading-relaxed text-muted-foreground">
-                Dr. Mehwish Zaman provides personalized dental care, from preventive and restorative
-                dentistry to cosmetic and orthodontic treatments.
+                Dr. Mehwish Zaman, Dentist / Aesthetic Physician, provides personalized dental care,
+                from preventive and restorative dentistry to cosmetic and orthodontic treatments.
               </p>
               <div className="mt-9 flex flex-wrap gap-3">
                 <Link to="/dental-services" className={btnPrimary}>
@@ -327,7 +327,9 @@ function Home() {
                   src={d.image}
                   alt={d.imageAlt}
                   loading="lazy"
-                  className="h-[26rem] w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                  width={d.name === "Dr. Mehwish Zaman" ? 769 : 960}
+                  height={d.name === "Dr. Mehwish Zaman" ? 1025 : 1200}
+                  className="aspect-[4/5] w-full object-contain object-top transition-transform duration-700 group-hover:scale-[1.02]"
                 />
               </Link>
               <h3 className="mt-6 font-display text-2xl text-espresso">{d.name}</h3>
