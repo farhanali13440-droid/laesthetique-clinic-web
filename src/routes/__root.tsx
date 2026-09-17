@@ -4,6 +4,7 @@ import {
   Link,
   createRootRouteWithContext,
   useRouter,
+  useLocation,
   HeadContent,
   Scripts,
 } from "@tanstack/react-router";
@@ -14,7 +15,6 @@ import { Toaster } from "@/components/ui/sonner";
 import { Header, MobileCtaBar } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
 import { reportLovableError } from "../lib/lovable-error-reporting";
-
 
 function NotFoundComponent() {
   return (
@@ -128,6 +128,8 @@ function RootShell({ children }: { children: ReactNode }) {
 
 function RootComponent() {
   const { queryClient } = Route.useRouteContext();
+  const location = useLocation();
+  const isDrMehwishLandingPage = location.pathname === "/dr-mehwish-zaman";
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -135,11 +137,10 @@ function RootComponent() {
         <Header />
         {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
         <Outlet />
-        <Footer />
+        {!isDrMehwishLandingPage && <Footer />}
         <MobileCtaBar />
       </div>
       <Toaster position="top-center" />
     </QueryClientProvider>
   );
 }
-
