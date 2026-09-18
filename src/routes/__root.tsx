@@ -121,13 +121,15 @@ function RootComponent() {
   const { queryClient } = Route.useRouteContext();
   const location = useLocation();
   const isDrMehwishLandingPage = location.pathname === "/dr-mehwish-zaman";
+  const isDrSumbleenLandingPage = location.pathname === "/about";
+  const isLandingPage = isDrMehwishLandingPage || isDrSumbleenLandingPage;
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="overflow-x-hidden pb-16 lg:pb-0">
-        {!isDrMehwishLandingPage && <Header />}
+        {!isLandingPage && <Header />}
         <Outlet />
-        {!isDrMehwishLandingPage && <Footer />}
+        {!isLandingPage && <Footer />}
         <MobileCtaBar />
       </div>
       <Toaster position="top-center" />
