@@ -194,7 +194,7 @@ function DrMehwish() {
           ))}
         </div>
         <div className="mt-8 text-center">
-          <a href="https://share.google/g9VBJ3SeSl1GbsNax" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-sm bg-[#CCA079] px-5 py-3 text-xs font-semibold text-[#3A3029] hover:bg-[#B98B5F]">View all Google reviews <ArrowRight className="h-3.5 w-3.5" /></a>
+          <a href="https://g.page/r/CUEas5sPy0uPEAE/review" target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-sm bg-[#CCA079] px-5 py-3 text-xs font-semibold text-[#3A3029] hover:bg-[#B98B5F]">View all Google reviews <ArrowRight className="h-3.5 w-3.5" /></a>
         </div>
       </section>
 
