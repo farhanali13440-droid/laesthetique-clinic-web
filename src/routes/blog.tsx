@@ -31,7 +31,7 @@ const posts = [
     title: "Tips for Taking Care of Your Teeth While Wearing Braces",
     excerpt:
       "Simple, practical tips to help you maintain good oral hygiene and protect your teeth while wearing braces.",
-    image: images.braces,
+    image: images.dentalRoom,
     alt: "Dental braces care at La Esthetique",
     points: ["Brush around brackets", "Clean between teeth", "Keep regular dental visits"],
   },
