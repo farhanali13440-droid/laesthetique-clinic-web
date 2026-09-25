@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { BookOpen, Sparkles } from "lucide-react";
+import { ArrowRight, Clock } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
-import { SectionHeading, btnPrimary } from "@/components/site/ui";
+import { btnPrimary } from "@/components/site/ui";
 import { images, whatsappLink } from "@/lib/site";
 
 const title = "La Esthetique Blog | Skin, Hair & Dental Care Guides";
-const description = "Helpful skin, hair, aesthetic and dental care guides from La Esthetique, Islamabad.";
+const description =
+  "Practical skin, hair, aesthetic and dental care guides from La Esthetique, Islamabad — written to help you prepare for your consultation.";
 
 export const Route = createFileRoute("/blog/")({
   component: Blog,
@@ -23,115 +24,129 @@ export const Route = createFileRoute("/blog/")({
   }),
 });
 
+type Post = {
+  href: string;
+  category: string;
+  title: string;
+  excerpt: string;
+  image: string;
+  alt: string;
+  readTime: string;
+};
+
+// Add new published guides here (newest first). The first one is featured.
+const posts: Post[] = [
+  {
+    href: "/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces",
+    category: "Dental Care",
+    title: "Tips for Taking Care of Your Teeth While Wearing Braces",
+    excerpt:
+      "A practical guide to brushing around brackets, cleaning between teeth, choosing foods carefully and knowing when to contact your dental team during orthodontic treatment.",
+    image: images.braces,
+    alt: "Dental braces care",
+    readTime: "5 min read",
+  },
+];
+
+const categories = ["Skin & Aesthetics", "Hair Care", "Dental Care"];
+
 function Blog() {
+  const [featured, ...rest] = posts;
   return (
     <main className="bg-background pb-20 text-espresso lg:pb-0">
-      <section className="bg-sand/50 px-5 pb-16 pt-32 lg:px-8 lg:pb-24 lg:pt-40">
-        <div className="mx-auto max-w-7xl">
-          <Reveal className="mx-auto max-w-3xl text-center">
+      <section className="bg-sand/50 px-5 pb-14 pt-32 lg:px-8 lg:pb-20 lg:pt-40">
+        <div className="mx-auto max-w-6xl">
+          <Reveal className="mx-auto max-w-2xl text-center">
             <p className="eyebrow">La Esthetique Journal</p>
             <h1 className="mt-5 font-display text-4xl leading-tight sm:text-5xl lg:text-6xl">
-              Helpful Guides for Your Skin, Hair &amp; Smile
+              Guides for Your Skin, Hair &amp; Smile
             </h1>
-            <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-              Clear, practical information to help you understand common concerns and prepare for a
-              more informed conversation with your doctor or dentist.
+            <p className="mx-auto mt-5 max-w-xl text-base leading-relaxed text-muted-foreground">
+              Clear, practical information to help you prepare for a more informed conversation
+              with your doctor or dentist.
             </p>
-          </Reveal>
-
-          <Reveal delay={100} className="mx-auto mt-12 max-w-5xl overflow-hidden rounded-sm bg-espresso">
-            <div className="grid items-stretch lg:grid-cols-[1.15fr_0.85fr]">
-              <div className="relative min-h-72">
-                <img
-                  src={images.skin}
-                  alt="Skin and aesthetic care at La Esthetique"
-                  className="absolute inset-0 h-full w-full object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-espresso/85 via-espresso/25 to-transparent" />
-                <div className="absolute bottom-6 left-6 text-background sm:bottom-8 sm:left-8">
-                  <p className="text-xs uppercase tracking-[0.2em] text-gold">Featured Guide</p>
-                  <h2 className="mt-2 max-w-lg font-display text-3xl sm:text-4xl">
-                    Start with the right questions before your treatment
-                  </h2>
-                </div>
-              </div>
-              <div className="flex flex-col justify-center p-7 text-background sm:p-10">
-                <BookOpen className="h-6 w-6 text-gold" strokeWidth={1.5} />
-                <p className="mt-5 text-sm leading-relaxed text-background/75">
-                  Our journal is designed to make clinic conversations easier — without replacing
-                  personalized medical or dental advice.
-                </p>
-              </div>
+            <div className="mt-7 flex flex-wrap justify-center gap-2">
+              {categories.map((c) => (
+                <span
+                  key={c}
+                  className="rounded-full border border-espresso/15 bg-background px-4 py-1.5 text-[11px] uppercase tracking-[0.14em] text-muted-foreground"
+                >
+                  {c}
+                </span>
+              ))}
             </div>
           </Reveal>
+
+          {featured && (
+            <Reveal delay={100} className="mt-12">
+              <a
+                href={featured.href}
+                className="group grid overflow-hidden rounded-sm border border-espresso/10 bg-background lg:grid-cols-[1.1fr_0.9fr]"
+              >
+                <div className="overflow-hidden bg-sand">
+                  <img
+                    src={featured.image}
+                    alt={featured.alt}
+                    className="h-64 w-full object-cover transition-transform duration-700 group-hover:scale-105 sm:h-80 lg:h-full"
+                  />
+                </div>
+                <div className="flex flex-col justify-center p-7 sm:p-10">
+                  <p className="text-[10px] uppercase tracking-[0.2em] text-primary">
+                    Featured · {featured.category}
+                  </p>
+                  <h2 className="mt-3 font-display text-3xl leading-tight group-hover:text-primary sm:text-4xl">
+                    {featured.title}
+                  </h2>
+                  <p className="mt-4 text-sm leading-relaxed text-muted-foreground">{featured.excerpt}</p>
+                  <div className="mt-6 flex items-center justify-between gap-4">
+                    <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
+                      <Clock className="h-3.5 w-3.5" /> {featured.readTime}
+                    </span>
+                    <span className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary">
+                      Read Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                    </span>
+                  </div>
+                </div>
+              </a>
+            </Reveal>
+          )}
         </div>
       </section>
 
-      <section id="latest-guides" className="px-5 py-20 lg:px-8 lg:py-28">
-        <div className="mx-auto max-w-7xl">
-          <SectionHeading
-            eyebrow="Latest Guides"
-            title="Explore our patient education"
-            copy="New practical guides will appear here as they are published."
-          />
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            <a
-              href="/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces"
-              className="group overflow-hidden rounded-sm border border-espresso/10 bg-background"
-            >
-              <img src={images.braces} alt="Dental braces care" loading="lazy" className="h-52 w-full object-cover" />
-              <div className="p-6">
-                <p className="text-[10px] uppercase tracking-[0.18em] text-primary">Dental Care</p>
-                <h3 className="mt-2 font-display text-xl group-hover:text-primary">
-                  Tips for Taking Care of Your Teeth While Wearing Braces
-                </h3>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
-                  Brushing, cleaning between teeth, food choices and daily care during orthodontic treatment.
-                </p>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-sand/40 py-20 lg:py-28">
-        <div className="mx-auto max-w-5xl px-5 lg:px-8">
-          <SectionHeading
-            eyebrow="Why our journal exists"
-            title="Information that helps you ask better questions"
-            copy="Online information can help you prepare, but treatment decisions should always be personalized to your individual needs."
-          />
-          <div className="mt-10 grid gap-4 sm:grid-cols-3">
-            {[
-              ["01", "Understand", "Learn the basics of a concern before your consultation."],
-              ["02", "Discuss", "Use what you learn to have a clearer conversation with your doctor or dentist."],
-              ["03", "Decide", "Explore appropriate next steps based on professional guidance."],
-            ].map(([number, heading, copy], i) => (
-              <Reveal key={number} delay={i * 60} className="rounded-sm border border-espresso/10 bg-background p-6">
-                <span className="text-xs tracking-[0.2em] text-primary">{number}</span>
-                <h3 className="mt-3 font-display text-xl">{heading}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{copy}</p>
-              </Reveal>
+      {rest.length > 0 && (
+        <section className="px-5 py-16 lg:px-8 lg:py-24">
+          <div className="mx-auto grid max-w-6xl gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {rest.map((p) => (
+              <a key={p.href} href={p.href} className="group overflow-hidden rounded-sm border border-espresso/10 bg-background">
+                <img src={p.image} alt={p.alt} loading="lazy" className="h-52 w-full object-cover" />
+                <div className="p-6">
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-primary">{p.category}</p>
+                  <h3 className="mt-2 font-display text-xl group-hover:text-primary">{p.title}</h3>
+                  <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{p.excerpt}</p>
+                </div>
+              </a>
             ))}
           </div>
-        </div>
+        </section>
+      )}
+
+      <section className="px-5 py-14 lg:px-8 lg:py-20">
+        <Reveal className="mx-auto max-w-3xl text-center">
+          <p className="text-sm leading-relaxed text-muted-foreground">
+            More skin, hair and dental guides are on the way. Our articles are for general
+            information and do not replace a personal consultation.
+          </p>
+        </Reveal>
       </section>
 
-      <section className="bg-espresso py-20 text-background lg:py-24">
-        <div className="mx-auto max-w-3xl px-5 text-center">
+      <section className="bg-espresso py-16 text-background lg:py-20">
+        <div className="mx-auto max-w-2xl px-5 text-center">
           <Reveal>
-            <Sparkles className="mx-auto h-7 w-7 text-gold" strokeWidth={1.3} />
-            <h2 className="mt-5 font-display text-3xl sm:text-4xl">Have a concern you want to discuss?</h2>
-            <p className="mt-5 leading-relaxed text-background/75">
-              If you are unsure what care is right for you, speak with the La Esthetique team about
-              your concern and available consultation options.
+            <h2 className="font-display text-3xl sm:text-4xl">Have a concern you want to discuss?</h2>
+            <p className="mt-4 leading-relaxed text-background/75">
+              Speak with the La Esthetique team about skin, hair or dental care.
             </p>
-            <a
-              href={whatsappLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className={btnPrimary + " mt-8"}
-            >
+            <a href={whatsappLink} target="_blank" rel="noopener noreferrer" className={btnPrimary + " mt-7"}>
               Book a Consultation
             </a>
           </Reveal>
