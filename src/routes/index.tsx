@@ -406,31 +406,15 @@ function Home() {
             copy="Practical information to help you understand common concerns and explore your care options before your consultation."
           />
 
-          <div className="mt-12 grid gap-6 md:grid-cols-3">
+          <div className="mx-auto mt-12 grid max-w-md gap-6">
             {[
               {
-                category: "Skin & Aesthetics",
-                title: "What to Know Before Choosing a Skin Treatment",
-                copy: "Understand why a consultation matters and how treatment options can be selected around your skin and individual goals.",
-                image: images.skin,
-                href: "/blog",
-                alt: "Skin and aesthetic treatment at La Esthetique",
-              },
-              {
-                category: "Hair Care",
-                title: "Common Causes of Hair Fall: When to Seek Advice",
-                copy: "Hair fall can have different causes. Learn why assessment is an important first step before choosing a treatment.",
-                image: images.doctor,
-                href: "/blog",
-                alt: "Dr. Sumbleen Majid at La Esthetique",
-              },
-              {
                 category: "Dental Care",
-                title: "How Regular Dental Checkups Support Your Smile",
-                copy: "Routine dental visits can help identify concerns early and keep your oral health on track.",
-                image: images.dentalRoom,
-                href: "/blog",
-                alt: "Dental treatment room at La Esthetique",
+                title: "Tips for Taking Care of Your Teeth While Wearing Braces",
+                copy: "Brushing, cleaning between teeth, food choices and daily care during orthodontic treatment.",
+                image: images.braces,
+                href: "/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces" as const,
+                alt: "Dental braces care",
               },
             ].map((post, i) => (
               <Reveal
@@ -469,9 +453,9 @@ function Home() {
           </div>
 
           <div className="mt-10 text-center">
-            <p className="text-xs text-muted-foreground">
-              More patient education and clinic guides will be added here.
-            </p>
+            <Link to="/blog" className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary">
+              View All Guides <ArrowRight className="h-3.5 w-3.5" />
+            </Link>
           </div>
         </div>
       </section>
