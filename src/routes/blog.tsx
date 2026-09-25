@@ -35,66 +35,6 @@ const posts = [
     alt: "Dental braces care at La Esthetique",
     points: ["Brush around brackets", "Clean between teeth", "Keep regular dental visits"],
   },
-  {
-    id: "skin-treatment-consultation",
-    category: "Skin & Aesthetics",
-    title: "What to Know Before Choosing a Skin Treatment",
-    excerpt:
-      "A consultation can help you understand your skin concern, discuss suitable options and decide on a care plan that fits your needs.",
-    image: images.skin,
-    alt: "Skin and aesthetic treatment at La Esthetique",
-    points: ["Understand your concern", "Discuss suitable options", "Plan your next step"],
-  },
-  {
-    id: "hair-fall",
-    category: "Hair Care",
-    title: "Common Causes of Hair Fall: When to Seek Advice",
-    excerpt:
-      "Hair fall can have different contributing factors. Understanding your concern is an important first step before choosing a treatment.",
-    image: images.hair,
-    alt: "Hair care at La Esthetique",
-    points: ["Look at the pattern", "Consider possible causes", "Seek professional assessment"],
-  },
-  {
-    id: "dental-checkups",
-    category: "Dental Care",
-    title: "How Regular Dental Checkups Support Your Smile",
-    excerpt:
-      "Routine dental visits can help you stay informed about your oral health and address concerns before they become more complicated.",
-    image: images.dentalRoom,
-    alt: "Dental treatment room at La Esthetique",
-    points: ["Routine assessment", "Professional cleaning", "Personalized dental guidance"],
-  },
-  {
-    id: "acne-care",
-    category: "Dermatology",
-    title: "A Simple Guide to Managing Acne Concerns",
-    excerpt:
-      "Acne can look different from person to person. A consistent routine and professional guidance can help you understand your options.",
-    image: images.glow,
-    alt: "Skin care at La Esthetique",
-    points: ["Understand your skin", "Keep your routine consistent", "Ask about suitable treatment"],
-  },
-  {
-    id: "laser-hair-removal",
-    category: "Aesthetic Care",
-    title: "Questions to Ask Before Laser Hair Removal",
-    excerpt:
-      "Before starting a laser hair removal plan, it is useful to understand your treatment area, expectations and recommended schedule.",
-    image: images.skin,
-    alt: "Aesthetic treatment at La Esthetique",
-    points: ["Discuss your skin and hair type", "Understand the treatment plan", "Ask about aftercare"],
-  },
-  {
-    id: "smile-care",
-    category: "Dental Care",
-    title: "Everyday Habits That Help Support a Healthy Smile",
-    excerpt:
-      "Small daily habits can make a meaningful part of your oral-care routine alongside professional dental checkups.",
-    image: images.dentalRoom,
-    alt: "Dental care at La Esthetique",
-    points: ["Brush consistently", "Clean between teeth", "Keep regular checkups"],
-  },
 ] as const;
 
 function Blog() {
