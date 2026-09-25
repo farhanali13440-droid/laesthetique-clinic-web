@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { ArrowRight, BookOpen, CheckCircle2, Sparkles } from "lucide-react";
+import { BookOpen, Sparkles } from "lucide-react";
 import { Reveal } from "@/components/site/Reveal";
 import { SectionHeading, btnPrimary } from "@/components/site/ui";
 import { images, whatsappLink } from "@/lib/site";
@@ -22,23 +22,6 @@ export const Route = createFileRoute("/blog")({
     links: [{ rel: "canonical", href: "/blog" }],
   }),
 });
-
-const posts = [
-  {
-    id: "braces-care",
-    category: "Dental Care",
-    title: "Tips for Taking Care of Your Teeth While Wearing Braces",
-    excerpt:
-      "A practical guide to keeping your teeth and gums clean during orthodontic treatment, from brushing around brackets to choosing foods and handling common braces concerns.",
-    image: images.dentalRoom,
-    alt: "Dental care at La Esthetique",
-    points: [
-      "Brushing around brackets and wires",
-      "Cleaning between your teeth",
-      "Foods to be careful with",
-    ],
-  },
-] as const;
 
 function Blog() {
   return (
@@ -78,9 +61,6 @@ function Blog() {
                   Our journal is designed to make clinic conversations easier — without replacing
                   personalized medical or dental advice.
                 </p>
-                <a href="#latest-guides" className="mt-7 inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.16em] text-gold">
-                  Browse the guides <ArrowRight className="h-3.5 w-3.5" />
-                </a>
               </div>
             </div>
           </Reveal>
@@ -92,51 +72,13 @@ function Blog() {
           <SectionHeading
             eyebrow="Latest Guides"
             title="Explore our patient education"
-            copy="Browse practical guides across dermatology, hair care, aesthetics and dentistry."
+            copy="New practical guides will appear here as they are published."
           />
-
-          <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {posts.map((post, i) => (
-              <Reveal
-                as="article"
-                key={post.id}
-                delay={i * 50}
-                id={post.id}
-                className="scroll-mt-28 group flex h-full flex-col overflow-hidden rounded-sm border border-espresso/10 bg-background"
-              >
-                <div className="overflow-hidden bg-sand">
-                  <img
-                    src={post.image}
-                    alt={post.alt}
-                    loading="lazy"
-                    className="h-56 w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="flex flex-1 flex-col p-6">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-primary">
-                    {post.category}
-                  </p>
-                  <h2 className="mt-3 font-display text-2xl leading-tight text-espresso">
-                    {post.title}
-                  </h2>
-                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{post.excerpt}</p>
-                  <div className="mt-5 space-y-2">
-                    {post.points.map((point) => (
-                      <div key={point} className="flex items-center gap-2 text-xs text-muted-foreground">
-                        <CheckCircle2 className="h-3.5 w-3.5 shrink-0 text-primary" />
-                        {point}
-                      </div>
-                    ))}
-                  </div>
-                  <a
-                    href="/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces"
-                    className="mt-6 inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary"
-                  >
-                    Read Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-                  </a>
-                </div>
-              </Reveal>
-            ))}
+          <div className="mt-12 rounded-sm border border-espresso/10 bg-sand/30 px-6 py-16 text-center">
+            <p className="font-display text-2xl text-espresso">No guides published yet.</p>
+            <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
+              Check back soon for new skin, hair, aesthetic and dental care guides from La Esthetique.
+            </p>
           </div>
         </div>
       </section>
