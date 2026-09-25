@@ -26,6 +26,16 @@ export const Route = createFileRoute("/blog")({
 
 const posts = [
   {
+    id: "braces-care",
+    category: "Dental Care",
+    title: "Tips for Taking Care of Your Teeth While Wearing Braces",
+    excerpt:
+      "Simple, practical tips to help you maintain good oral hygiene and protect your teeth while wearing braces.",
+    image: images.braces,
+    alt: "Dental braces care at La Esthetique",
+    points: ["Brush around brackets", "Clean between teeth", "Keep regular dental visits"],
+  },
+  {
     id: "skin-treatment-consultation",
     category: "Skin & Aesthetics",
     title: "What to Know Before Choosing a Skin Treatment",
@@ -175,7 +185,7 @@ function Blog() {
                     ))}
                   </div>
                   <a
-                    href={`#${post.id}`}
+                    href={post.id === "braces-care" ? "/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces" : `#${post.id}`}
                     className="mt-6 inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary"
                   >
                     Read Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
