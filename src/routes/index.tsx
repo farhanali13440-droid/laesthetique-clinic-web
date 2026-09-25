@@ -413,7 +413,7 @@ function Home() {
                 title: "What to Know Before Choosing a Skin Treatment",
                 copy: "Understand why a consultation matters and how treatment options can be selected around your skin and individual goals.",
                 image: images.skin,
-                href: "/skin-treatments",
+                href: "/blog",
                 alt: "Skin and aesthetic treatment at La Esthetique",
               },
               {
@@ -421,7 +421,7 @@ function Home() {
                 title: "Common Causes of Hair Fall: When to Seek Advice",
                 copy: "Hair fall can have different causes. Learn why assessment is an important first step before choosing a treatment.",
                 image: images.doctor,
-                href: "/skin-treatments",
+                href: "/blog",
                 alt: "Dr. Sumbleen Majid at La Esthetique",
               },
               {
@@ -429,7 +429,7 @@ function Home() {
                 title: "How Regular Dental Checkups Support Your Smile",
                 copy: "Routine dental visits can help identify concerns early and keep your oral health on track.",
                 image: images.dentalRoom,
-                href: "/dental-services",
+                href: "/blog",
                 alt: "Dental treatment room at La Esthetique",
               },
             ].map((post, i) => (
