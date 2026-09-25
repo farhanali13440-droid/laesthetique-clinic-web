@@ -5,8 +5,7 @@ import { SectionHeading, btnPrimary } from "@/components/site/ui";
 import { images, whatsappLink } from "@/lib/site";
 
 const title = "La Esthetique Blog | Skin, Hair & Dental Care Guides";
-const description =
-  "Helpful skin, hair, aesthetic and dental care guides from La Esthetique, Islamabad.";
+const description = "Helpful skin, hair, aesthetic and dental care guides from La Esthetique, Islamabad.";
 
 export const Route = createFileRoute("/blog")({
   component: Blog,
@@ -24,7 +23,22 @@ export const Route = createFileRoute("/blog")({
   }),
 });
 
-const posts = [] as const;
+const posts = [
+  {
+    id: "braces-care",
+    category: "Dental Care",
+    title: "Tips for Taking Care of Your Teeth While Wearing Braces",
+    excerpt:
+      "A practical guide to keeping your teeth and gums clean during orthodontic treatment, from brushing around brackets to choosing foods and handling common braces concerns.",
+    image: images.dentalRoom,
+    alt: "Dental care at La Esthetique",
+    points: [
+      "Brushing around brackets and wires",
+      "Cleaning between your teeth",
+      "Foods to be careful with",
+    ],
+  },
+] as const;
 
 function Blog() {
   return (
@@ -87,7 +101,8 @@ function Blog() {
                 as="article"
                 key={post.id}
                 delay={i * 50}
-                id={post.id} className="scroll-mt-28 group flex h-full flex-col overflow-hidden rounded-sm border border-espresso/10 bg-background"
+                id={post.id}
+                className="scroll-mt-28 group flex h-full flex-col overflow-hidden rounded-sm border border-espresso/10 bg-background"
               >
                 <div className="overflow-hidden bg-sand">
                   <img
@@ -114,7 +129,7 @@ function Blog() {
                     ))}
                   </div>
                   <a
-                    href={post.id === "braces-care" ? "/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces" : `#${post.id}`}
+                    href="/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces"
                     className="mt-6 inline-flex w-fit items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary"
                   >
                     Read Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
@@ -162,7 +177,7 @@ function Blog() {
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className={`${btnPrimary} mt-8`}
+              className={btnPrimary + " mt-8"}
             >
               Book a Consultation
             </a>
