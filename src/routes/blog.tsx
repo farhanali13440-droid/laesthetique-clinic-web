@@ -74,11 +74,22 @@ function Blog() {
             title="Explore our patient education"
             copy="New practical guides will appear here as they are published."
           />
-          <div className="mt-12 rounded-sm border border-espresso/10 bg-sand/30 px-6 py-16 text-center">
-            <p className="font-display text-2xl text-espresso">No guides published yet.</p>
-            <p className="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-muted-foreground">
-              Check back soon for new skin, hair, aesthetic and dental care guides from La Esthetique.
-            </p>
+          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <a
+              href="/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces"
+              className="group overflow-hidden rounded-sm border border-espresso/10 bg-background"
+            >
+              <img src={images.braces} alt="Dental braces care" loading="lazy" className="h-52 w-full object-cover" />
+              <div className="p-6">
+                <p className="text-[10px] uppercase tracking-[0.18em] text-primary">Dental Care</p>
+                <h3 className="mt-2 font-display text-xl group-hover:text-primary">
+                  Tips for Taking Care of Your Teeth While Wearing Braces
+                </h3>
+                <p className="mt-2 text-xs leading-relaxed text-muted-foreground">
+                  Brushing, cleaning between teeth, food choices and daily care during orthodontic treatment.
+                </p>
+              </div>
+            </a>
           </div>
         </div>
       </section>
