@@ -11,15 +11,16 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
-import { Route as BlogRouteImport } from './routes/blog'
-import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as AestheticsRouteImport } from './routes/aesthetics'
+import { Route as BlogRouteImport } from './routes/blog'
 import { Route as ClinicRouteImport } from './routes/clinic'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as DrMehwishZamanRouteImport } from './routes/dr-mehwish-zaman'
 import { Route as HairTreatmentsRouteImport } from './routes/hair-treatments'
 import { Route as SkinHairRouteImport } from './routes/skin-hair'
 import { Route as SkinTreatmentsRouteImport } from './routes/skin-treatments'
+import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
+import { Route as BlogTipsForTakingCareOfYourTeethWhileWearingBracesRouteImport } from './routes/blog.tips-for-taking-care-of-your-teeth-while-wearing-braces'
 import { Route as DentalServicesIndexRouteImport } from './routes/dental-services.index'
 import { Route as DentalServicesSlugRouteImport } from './routes/dental-services.$slug'
 import { Route as TreatmentsIndexRouteImport } from './routes/treatments.index'
@@ -36,20 +37,14 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const BlogRoute = BlogRouteImport.update({
-  id: '/blog',
-  path: '/blog',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/blog/$slug',
-  path: '/blog/$slug',
-  getParentRoute: () => rootRouteImport,
-} as any)
-
 const AestheticsRoute = AestheticsRouteImport.update({
   id: '/aesthetics',
   path: '/aesthetics',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogRoute = BlogRouteImport.update({
+  id: '/blog',
+  path: '/blog',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ClinicRoute = ClinicRouteImport.update({
@@ -82,6 +77,17 @@ const SkinTreatmentsRoute = SkinTreatmentsRouteImport.update({
   path: '/skin-treatments',
   getParentRoute: () => rootRouteImport,
 } as any)
+const BlogSlugRoute = BlogSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => BlogRoute,
+} as any)
+const BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute =
+  BlogTipsForTakingCareOfYourTeethWhileWearingBracesRouteImport.update({
+    id: '/tips-for-taking-care-of-your-teeth-while-wearing-braces',
+    path: '/tips-for-taking-care-of-your-teeth-while-wearing-braces',
+    getParentRoute: () => BlogRoute,
+  } as any)
 const DentalServicesIndexRoute = DentalServicesIndexRouteImport.update({
   id: '/dental-services/',
   path: '/dental-services/',
@@ -113,18 +119,15 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/aesthetics': typeof AestheticsRoute
-  '/blog': typeof BlogRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blog': typeof BlogRoute
-  '/blog/$slug': typeof BlogSlugRoute
-  '/blog': typeof BlogRoute
-  '/blog/$slug': typeof BlogSlugRoute
+  '/blog': typeof BlogRouteWithChildren
   '/clinic': typeof ClinicRoute
   '/contact': typeof ContactRoute
   '/dr-mehwish-zaman': typeof DrMehwishZamanRoute
   '/hair-treatments': typeof HairTreatmentsRoute
   '/skin-hair': typeof SkinHairRoute
   '/skin-treatments': typeof SkinTreatmentsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces': typeof BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute
   '/dental-services/$slug': typeof DentalServicesSlugRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
   '/dental-services/': typeof DentalServicesIndexRoute
@@ -135,12 +138,15 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/aesthetics': typeof AestheticsRoute
+  '/blog': typeof BlogRouteWithChildren
   '/clinic': typeof ClinicRoute
   '/contact': typeof ContactRoute
   '/dr-mehwish-zaman': typeof DrMehwishZamanRoute
   '/hair-treatments': typeof HairTreatmentsRoute
   '/skin-hair': typeof SkinHairRoute
   '/skin-treatments': typeof SkinTreatmentsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces': typeof BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute
   '/dental-services/$slug': typeof DentalServicesSlugRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
   '/dental-services': typeof DentalServicesIndexRoute
@@ -152,12 +158,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/aesthetics': typeof AestheticsRoute
+  '/blog': typeof BlogRouteWithChildren
   '/clinic': typeof ClinicRoute
   '/contact': typeof ContactRoute
   '/dr-mehwish-zaman': typeof DrMehwishZamanRoute
   '/hair-treatments': typeof HairTreatmentsRoute
   '/skin-hair': typeof SkinHairRoute
   '/skin-treatments': typeof SkinTreatmentsRoute
+  '/blog/$slug': typeof BlogSlugRoute
+  '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces': typeof BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute
   '/dental-services/$slug': typeof DentalServicesSlugRoute
   '/treatments/$slug': typeof TreatmentsSlugRoute
   '/dental-services/': typeof DentalServicesIndexRoute
@@ -170,12 +179,15 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/aesthetics'
+    | '/blog'
     | '/clinic'
     | '/contact'
     | '/dr-mehwish-zaman'
     | '/hair-treatments'
     | '/skin-hair'
     | '/skin-treatments'
+    | '/blog/$slug'
+    | '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces'
     | '/dental-services/$slug'
     | '/treatments/$slug'
     | '/dental-services/'
@@ -186,12 +198,15 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/aesthetics'
+    | '/blog'
     | '/clinic'
     | '/contact'
     | '/dr-mehwish-zaman'
     | '/hair-treatments'
     | '/skin-hair'
     | '/skin-treatments'
+    | '/blog/$slug'
+    | '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces'
     | '/dental-services/$slug'
     | '/treatments/$slug'
     | '/dental-services'
@@ -202,12 +217,15 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/aesthetics'
+    | '/blog'
     | '/clinic'
     | '/contact'
     | '/dr-mehwish-zaman'
     | '/hair-treatments'
     | '/skin-hair'
     | '/skin-treatments'
+    | '/blog/$slug'
+    | '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces'
     | '/dental-services/$slug'
     | '/treatments/$slug'
     | '/dental-services/'
@@ -219,6 +237,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   AestheticsRoute: typeof AestheticsRoute
+  BlogRoute: typeof BlogRouteWithChildren
   ClinicRoute: typeof ClinicRoute
   ContactRoute: typeof ContactRoute
   DrMehwishZamanRoute: typeof DrMehwishZamanRoute
@@ -248,25 +267,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/blog': {
-      id: '/blog'
-      path: '/blog'
-      fullPath: '/blog'
-      preLoaderRoute: typeof BlogRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/blog/$slug': {
-      id: '/blog/$slug'
-      path: '/blog/$slug'
-      fullPath: '/blog/$slug'
-      preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/aesthetics': {
       id: '/aesthetics'
       path: '/aesthetics'
       fullPath: '/aesthetics'
       preLoaderRoute: typeof AestheticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog': {
+      id: '/blog'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/clinic': {
@@ -311,6 +323,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SkinTreatmentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugRouteImport
+      parentRoute: typeof BlogRoute
+    }
+    '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces': {
+      id: '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces'
+      path: '/tips-for-taking-care-of-your-teeth-while-wearing-braces'
+      fullPath: '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces'
+      preLoaderRoute: typeof BlogTipsForTakingCareOfYourTeethWhileWearingBracesRouteImport
+      parentRoute: typeof BlogRoute
+    }
     '/dental-services/': {
       id: '/dental-services/'
       path: '/dental-services'
@@ -349,12 +375,24 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface BlogRouteChildren {
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute: typeof BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute
+}
+
+const BlogRouteChildren: BlogRouteChildren = {
+  BlogSlugRoute: BlogSlugRoute,
+  BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute:
+    BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute,
+}
+
+const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   AestheticsRoute: AestheticsRoute,
-  BlogRoute: BlogRoute,
-  BlogSlugRoute: BlogSlugRoute,
+  BlogRoute: BlogRouteWithChildren,
   ClinicRoute: ClinicRoute,
   ContactRoute: ContactRoute,
   DrMehwishZamanRoute: DrMehwishZamanRoute,
