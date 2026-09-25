@@ -397,6 +397,85 @@ function Home() {
       {/* GOOGLE REVIEWS */}
       <GoogleReviews />
 
+      {/* BLOG / HEALTH GUIDES */}
+      <section className="bg-sand/40 py-20 lg:py-28">
+        <div className="mx-auto max-w-7xl px-5 lg:px-8">
+          <SectionHeading
+            eyebrow="From the La Esthetique Journal"
+            title="Helpful Guides for Your Skin, Hair & Smile"
+            copy="Practical information to help you understand common concerns and explore your care options before your consultation."
+          />
+
+          <div className="mt-12 grid gap-6 md:grid-cols-3">
+            {[
+              {
+                category: "Skin & Aesthetics",
+                title: "What to Know Before Choosing a Skin Treatment",
+                copy: "Understand why a consultation matters and how treatment options can be selected around your skin and individual goals.",
+                image: images.skin,
+                href: "/skin-treatments",
+                alt: "Skin and aesthetic treatment at La Esthetique",
+              },
+              {
+                category: "Hair Care",
+                title: "Common Causes of Hair Fall: When to Seek Advice",
+                copy: "Hair fall can have different causes. Learn why assessment is an important first step before choosing a treatment.",
+                image: images.doctor,
+                href: "/skin-treatments",
+                alt: "Dr. Sumbleen Majid at La Esthetique",
+              },
+              {
+                category: "Dental Care",
+                title: "How Regular Dental Checkups Support Your Smile",
+                copy: "Routine dental visits can help identify concerns early and keep your oral health on track.",
+                image: images.dentalRoom,
+                href: "/dental-services",
+                alt: "Dental treatment room at La Esthetique",
+              },
+            ].map((post, i) => (
+              <Reveal
+                as="article"
+                key={post.title}
+                delay={i * 70}
+                className="group overflow-hidden rounded-sm border border-espresso/10 bg-background"
+              >
+                <Link to={post.href} className="block overflow-hidden bg-sand">
+                  <img
+                    src={post.image}
+                    alt={post.alt}
+                    loading="lazy"
+                    className="h-52 w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </Link>
+                <div className="p-6">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.18em] text-primary">
+                    {post.category}
+                  </p>
+                  <h3 className="mt-3 font-display text-2xl leading-tight text-espresso">
+                    {post.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                    {post.copy}
+                  </p>
+                  <Link
+                    to={post.href}
+                    className="mt-5 inline-flex items-center gap-2 text-xs uppercase tracking-[0.16em] text-primary"
+                  >
+                    Read Guide <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="mt-10 text-center">
+            <p className="text-xs text-muted-foreground">
+              More patient education and clinic guides will be added here.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* FINAL CTA */}
       <section className="bg-espresso py-20 text-background lg:py-24">
         <div className="mx-auto max-w-3xl px-5 text-center">
