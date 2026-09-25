@@ -8,6 +8,7 @@ import featureCare from "@/assets/feature-care.jpg";
 import featureHair from "@/assets/feature-hair.jpg";
 import featureGlow from "@/assets/feature-glow.jpg";
 import drMehwish from "@/assets/dental/dr-mehwish-zaman-official.jpg.asset.json";
+import bracesImg from "@/assets/dental/braces.jpg";
 import dentalRoom from "@/assets/dental/dental-room.jpg.asset.json";
 
 /**
@@ -52,6 +53,7 @@ export const images = {
   drMehwish: drMehwish.url,
   /** Approved real La Esthetique dental operatory photograph. */
   dentalRoom: dentalRoom.url,
+  braces: bracesImg,
 };
 
 export const navLinks = [
