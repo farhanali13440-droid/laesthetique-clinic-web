@@ -7,7 +7,7 @@ import { images, whatsappLink } from "@/lib/site";
 const title = "La Esthetique Blog | Skin, Hair & Dental Care Guides";
 const description = "Helpful skin, hair, aesthetic and dental care guides from La Esthetique, Islamabad.";
 
-export const Route = createFileRoute("/blog")({
+export const Route = createFileRoute("/blog/")({
   component: Blog,
   head: () => ({
     meta: [
