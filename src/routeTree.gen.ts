@@ -78,15 +78,15 @@ const BlogIndexRoute = BlogIndexRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const BlogSlugRoute = BlogSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => BlogRoute,
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute =
   BlogTipsForTakingCareOfYourTeethWhileWearingBracesRouteImport.update({
-    id: '/tips-for-taking-care-of-your-teeth-while-wearing-braces',
-    path: '/tips-for-taking-care-of-your-teeth-while-wearing-braces',
-    getParentRoute: () => BlogRoute,
+    id: '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces',
+    path: '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces',
+    getParentRoute: () => rootRouteImport,
   } as any)
 const DentalServicesIndexRoute = DentalServicesIndexRouteImport.update({
   id: '/dental-services/',
@@ -243,6 +243,8 @@ export interface RootRouteChildren {
   HairTreatmentsRoute: typeof HairTreatmentsRoute
   SkinHairRoute: typeof SkinHairRoute
   SkinTreatmentsRoute: typeof SkinTreatmentsRoute
+  BlogSlugRoute: typeof BlogSlugRoute
+  BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute: typeof BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute
   DentalServicesSlugRoute: typeof DentalServicesSlugRoute
   TreatmentsSlugRoute: typeof TreatmentsSlugRoute
   BlogIndexRoute: typeof BlogIndexRoute
@@ -325,17 +327,17 @@ declare module '@tanstack/react-router' {
     }
     '/blog/$slug': {
       id: '/blog/$slug'
-      path: '/$slug'
+      path: '/blog/$slug'
       fullPath: '/blog/$slug'
       preLoaderRoute: typeof BlogSlugRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces': {
       id: '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces'
-      path: '/tips-for-taking-care-of-your-teeth-while-wearing-braces'
+      path: '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces'
       fullPath: '/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces'
       preLoaderRoute: typeof BlogTipsForTakingCareOfYourTeethWhileWearingBracesRouteImport
-      parentRoute: typeof BlogRoute
+      parentRoute: typeof rootRouteImport
     }
     '/dental-services/': {
       id: '/dental-services/'
@@ -385,6 +387,9 @@ const rootRouteChildren: RootRouteChildren = {
   HairTreatmentsRoute: HairTreatmentsRoute,
   SkinHairRoute: SkinHairRoute,
   SkinTreatmentsRoute: SkinTreatmentsRoute,
+  BlogSlugRoute: BlogSlugRoute,
+  BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute:
+    BlogTipsForTakingCareOfYourTeethWhileWearingBracesRoute,
   DentalServicesSlugRoute: DentalServicesSlugRoute,
   TreatmentsSlugRoute: TreatmentsSlugRoute,
   BlogIndexRoute: BlogIndexRoute,
