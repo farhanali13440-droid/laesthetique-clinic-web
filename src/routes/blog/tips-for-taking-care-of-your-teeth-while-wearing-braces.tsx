@@ -5,7 +5,7 @@ import { clinic, images, whatsappLink } from "@/lib/site";
 
 const title = "Tips for Taking Care of Your Teeth While Wearing Braces | La Esthetique";
 const description =
-  "Learn simple, practical tips for caring for your teeth and maintaining good oral hygiene while wearing braces.";
+  "Learn practical tips for brushing, cleaning between teeth, choosing foods and caring for your teeth while wearing braces.";
 
 export const Route = createFileRoute("/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces")({
   component: BracesCareBlog,
@@ -22,6 +22,14 @@ export const Route = createFileRoute("/blog/tips-for-taking-care-of-your-teeth-w
     links: [{ rel: "canonical", href: "/blog/tips-for-taking-care-of-your-teeth-while-wearing-braces" }],
   }),
 });
+
+const tools = [
+  "A soft-bristled toothbrush",
+  "Fluoride toothpaste",
+  "An interdental brush for cleaning around brackets and wires",
+  "Dental floss or a flossing aid recommended by your dental professional",
+  "A fluoride mouthwash if your dental professional recommends one",
+];
 
 const tips = [
   {
@@ -101,6 +109,37 @@ function BracesCareBlog() {
               </p>
             </Reveal>
 
+            <Reveal className="mt-10">
+              <h2 className="font-display text-3xl sm:text-4xl">Why oral care matters more with braces</h2>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                Brackets and wires create additional areas where plaque and food particles can collect.
+                If these areas are not cleaned regularly, it can become harder to keep the teeth and
+                gums healthy during orthodontic treatment. A careful routine helps you clean around
+                the appliance without putting unnecessary pressure on it.
+              </p>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                Good oral hygiene is not only about the braces themselves. Your natural teeth and gums
+                still need daily care throughout treatment, so make brushing and interdental cleaning
+                part of your normal routine.
+              </p>
+            </Reveal>
+
+            <Reveal className="mt-10 rounded-sm border border-espresso/10 bg-background p-6 sm:p-8">
+              <h2 className="font-display text-2xl sm:text-3xl">Keep these oral-care tools handy</h2>
+              <p className="mt-3 text-sm leading-7 text-muted-foreground">
+                Your exact routine may vary depending on your braces and your dental professional's
+                recommendations. Commonly useful tools include:
+              </p>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                {tools.map((item) => (
+                  <div key={item} className="flex gap-2.5 text-sm text-muted-foreground">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    {item}
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
             <div className="mt-10 space-y-5">
               {tips.map((tip, i) => (
                 <Reveal
@@ -140,11 +179,67 @@ function BracesCareBlog() {
               </div>
             </Reveal>
 
+            <Reveal className="mt-10">
+              <h2 className="font-display text-3xl sm:text-4xl">Foods to be careful with</h2>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                During orthodontic treatment, your dental team may recommend avoiding foods that are
+                very hard, sticky or difficult to bite. These foods can put stress on brackets and
+                wires or become difficult to remove from around the appliance.
+              </p>
+              <p className="mt-4 text-sm leading-7 text-muted-foreground">
+                Instead of biting directly into hard foods, follow your orthodontic team's instructions
+                about safer alternatives and preparation. If you are unsure whether a particular food
+                is suitable, ask at your next appointment.
+              </p>
+            </Reveal>
+
+            <Reveal className="mt-10">
+              <h2 className="font-display text-3xl sm:text-4xl">A simple routine after eating</h2>
+              <div className="mt-5 space-y-3">
+                {[
+                  ["1", "Remove any food that is visibly trapped around the braces."],
+                  ["2", "Rinse with water if you cannot brush immediately."],
+                  ["3", "Brush carefully when you are able to clean your teeth."],
+                  ["4", "Use an interdental brush or recommended flossing aid to clean between teeth and around wires."],
+                ].map(([number, item]) => (
+                  <div key={number} className="flex gap-4 rounded-sm bg-sand/50 p-4">
+                    <span className="text-xs font-semibold tracking-[0.18em] text-primary">{number}</span>
+                    <p className="text-sm leading-6 text-muted-foreground">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
             <Reveal className="mt-10 border-l-2 border-primary pl-5">
               <p className="text-sm leading-7 text-muted-foreground">
                 <strong className="text-espresso">Important:</strong> Your dental professional may
                 give you instructions specific to your braces, teeth and treatment plan. Follow their
                 guidance if it differs from general advice.
+              </p>
+            </Reveal>
+            <Reveal className="mt-10">
+              <h2 className="font-display text-3xl sm:text-4xl">Common questions about braces care</h2>
+              <div className="mt-6 space-y-6">
+                {[
+                  ["How often should I clean my teeth with braces?", "Follow the brushing schedule recommended by your dental professional. Cleaning thoroughly and consistently is especially important when brackets and wires are present."],
+                  ["Can I still floss while wearing braces?", "Yes, cleaning between the teeth remains important. Your dental professional can show you the flossing method or cleaning aid that works with your particular appliance."],
+                  ["What should I do if a bracket breaks?", "Contact your dental or orthodontic team and follow their instructions. Avoid attempting to repair or reposition the bracket yourself."],
+                  ["Should I use mouthwash?", "A fluoride mouthwash may be recommended in some situations, but it should complement—not replace—brushing and cleaning between the teeth. Ask your dental professional what is appropriate for you."],
+                ].map(([question, answer]) => (
+                  <div key={question} className="border-b border-espresso/10 pb-5">
+                    <h3 className="font-display text-xl">{question}</h3>
+                    <p className="mt-2 text-sm leading-7 text-muted-foreground">{answer}</p>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal className="mt-10 border-l-2 border-primary pl-5">
+              <p className="text-sm leading-7 text-muted-foreground">
+                <strong className="text-espresso">When to contact your dental team:</strong> Seek
+                professional advice if you have persistent pain, significant swelling, a damaged or
+                loose appliance, or another concern that does not settle. Your dental professional
+                can advise you on the appropriate next step.
               </p>
             </Reveal>
           </div>
