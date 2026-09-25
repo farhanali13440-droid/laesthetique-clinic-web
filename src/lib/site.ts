@@ -63,6 +63,7 @@ export const navLinks = [
   { label: "Dental Services", to: "/dental-services" },
   { label: "Clinic", to: "/clinic" },
   { label: "Contact", to: "/contact" },
+  { label: "Blog", to: "/blog" },
 ] as const;
 
 /** The two areas of expertise under the La Esthetique brand. */
