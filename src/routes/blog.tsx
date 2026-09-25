@@ -148,7 +148,7 @@ function Blog() {
                 as="article"
                 key={post.id}
                 delay={i * 50}
-                className="group flex h-full flex-col overflow-hidden rounded-sm border border-espresso/10 bg-background"
+                id={post.id} className="scroll-mt-28 group flex h-full flex-col overflow-hidden rounded-sm border border-espresso/10 bg-background"
               >
                 <div className="overflow-hidden bg-sand">
                   <img
